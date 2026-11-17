@@ -110,10 +110,8 @@ create_post "Planning Your First Stay Near Jawai Bandh" \
 <p>Build in two full safari days minimum — leopards cooperate, but never on a strict timetable.</p>" \
 "$IMG_LAND" travel-tips safari
 
-# Pages
-wp post update 2 --post_title='About Explore Jawai' --post_name='about' --post_status=publish \
-  --post_content='<p><strong>Explore Jawai</strong> is an independent travel blog dedicated to wildlife tourism, responsible safaris, and stories from the Jawai Bandh region of Rajasthan.</p>
-<p>Use our <a href="/">latest posts</a> for itineraries and field notes. For partnerships or corrections, use the contact page.</p>'
+# About page (full Jawai content from repo)
+bash "$(dirname "$0")/set-about-page.sh"
 
 CONTACT_ID=$(wp post list --post_type=page --name=contact --field=ID 2>/dev/null || true)
 if [[ -z "$CONTACT_ID" ]]; then
