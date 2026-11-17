@@ -3,7 +3,45 @@
 <!-- wp:group {"tagName":"main","style":{"spacing":{"margin":{"top":"0"},"blockGap":"0"}},"layout":{"type":"default"}} -->
 <main class="wp-block-group" style="margin-top:0">
 	<!-- wp:pattern {"slug":"explore-jawai/jawai-hero"} /-->
-	<!-- wp:pattern {"slug":"explore-jawai/jawai-home-feed"} /-->
+
+	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|30"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignwide">
+		<!-- wp:heading {"textAlign":"center","level":2} -->
+		<h2 class="wp-block-heading has-text-align-center">Recent blog posts</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph {"align":"center"} -->
+		<p class="has-text-align-center">Safari stories, travel tips, and photos from Jawai — newest first.</p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:query {"queryId":1,"query":{"perPage":6,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"align":"wide","layout":{"type":"default"}} -->
+	<div class="wp-block-query alignwide">
+		<!-- wp:post-template {"layout":{"type":"grid","columnCount":3},"style":{"spacing":{"blockGap":"2rem"}}} -->
+		<!-- wp:group {"style":{"spacing":{"blockGap":"0.75rem"}},"layout":{"type":"constrained"}} -->
+		<div class="wp-block-group">
+			<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","sizeSlug":"large","style":{"border":{"radius":"8px"}}} /-->
+			<!-- wp:post-title {"isLink":true,"fontSize":"large"} /-->
+			<!-- wp:post-date {"fontSize":"small"} /-->
+			<!-- wp:post-excerpt {"moreText":"Read more →","excerptLength":22} /-->
+		</div>
+		<!-- /wp:group -->
+		<!-- /wp:post-template -->
+
+		<!-- wp:query-no-results -->
+		<!-- wp:paragraph {"align":"center"} -->
+		<p class="has-text-align-center">No posts yet — check back soon.</p>
+		<!-- /wp:paragraph -->
+		<!-- /wp:query-no-results -->
+
+		<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
+		<!-- wp:query-pagination-previous /-->
+		<!-- wp:query-pagination-numbers /-->
+		<!-- wp:query-pagination-next /-->
+		<!-- /wp:query-pagination -->
+	</div>
+	<!-- /wp:query -->
 </main>
 <!-- /wp:group -->
 

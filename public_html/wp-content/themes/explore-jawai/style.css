@@ -28,3 +28,14 @@ a:where(:not(.wp-element-button)) {
   --wp--preset--color--jawai-rust: #b45309;
   --wp--preset--color--jawai-slate: #1e293b;
 }
+
+/* Homepage blog grid */
+main .wp-block-post-featured-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+main .wp-block-query .wp-block-post-template {
+  margin-bottom: 2rem;
+}
