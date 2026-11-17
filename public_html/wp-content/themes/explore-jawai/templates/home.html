@@ -1,61 +1,58 @@
 <!-- wp:template-part {"slug":"header","area":"header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main","className":"explore-jawai-main","style":{"spacing":{"margin":{"top":"0"},"blockGap":"0"}},"layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"main","className":"explore-jawai-main","layout":{"type":"default"}} -->
 <main class="wp-block-group explore-jawai-main">
 	<!-- wp:pattern {"slug":"explore-jawai/jawai-hero"} /-->
 
-	<!-- wp:group {"align":"full","className":"explore-jawai-section","layout":{"type":"default"}} -->
-	<div class="wp-block-group alignfull explore-jawai-section">
-		<!-- wp:heading {"level":2} -->
-		<h2 class="wp-block-heading">Latest from Explore Jawai</h2>
-		<!-- /wp:heading -->
-		<!-- wp:paragraph -->
-		<p>Field notes and photo journals from the leopard hills — browse stories or filter by category on the right.</p>
-		<!-- /wp:paragraph -->
+	<!-- wp:group {"className":"explore-jawai-shell","layout":{"type":"default"}} -->
+	<div class="wp-block-group explore-jawai-shell">
+		<!-- wp:group {"className":"explore-jawai-section","layout":{"type":"default"}} -->
+		<div class="wp-block-group explore-jawai-section">
+			<!-- wp:heading {"level":2} -->
+			<h2 class="wp-block-heading">Latest from Explore Jawai</h2>
+			<!-- /wp:heading -->
+			<!-- wp:paragraph -->
+			<p>Field notes and photo journals from the leopard hills — browse stories or filter by category on the right.</p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:columns {"className":"explore-jawai-blog-layout"} -->
+		<div class="wp-block-columns explore-jawai-blog-layout">
+			<!-- wp:column -->
+			<div class="wp-block-column">
+				<!-- wp:query {"queryId":1,"query":{"perPage":6,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"default"}} -->
+				<div class="wp-block-query">
+					<!-- wp:post-template {"className":"explore-jawai-post-cards","layout":{"type":"grid","columnCount":2},"style":{"spacing":{"blockGap":"1.75rem"}}} -->
+					<!-- wp:group {"className":"explore-jawai-card","layout":{"type":"constrained"}} -->
+					<div class="wp-block-group explore-jawai-card">
+						<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","sizeSlug":"large"} /-->
+						<!-- wp:post-terms {"term":"category","style":{"typography":{"fontSize":"0.8125rem"}}} /-->
+						<!-- wp:post-title {"isLink":true,"fontSize":"large"} /-->
+						<!-- wp:post-date {"fontSize":"small","style":{"color":{"text":"#64748b"}}} /-->
+						<!-- wp:post-excerpt {"moreText":"Read full story →","excerptLength":22} /-->
+					</div>
+					<!-- /wp:group -->
+					<!-- /wp:post-template -->
+					<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"2.5rem"}}}} -->
+					<!-- wp:query-pagination-previous /-->
+					<!-- wp:query-pagination-numbers /-->
+					<!-- wp:query-pagination-next /-->
+					<!-- /wp:query-pagination -->
+				</div>
+				<!-- /wp:query -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column -->
+			<div class="wp-block-column">
+				<!-- wp:template-part {"slug":"sidebar","area":"uncategorized"} /-->
+			</div>
+			<!-- /wp:column -->
+		</div>
+		<!-- /wp:columns -->
 	</div>
 	<!-- /wp:group -->
-
-	<!-- wp:columns {"align":"full","className":"explore-jawai-blog-layout"} -->
-	<div class="wp-block-columns alignfull explore-jawai-blog-layout">
-		<!-- wp:column -->
-		<div class="wp-block-column">
-			<!-- wp:query {"queryId":1,"query":{"perPage":6,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"default"}} -->
-			<div class="wp-block-query">
-				<!-- wp:post-template {"className":"explore-jawai-post-cards","layout":{"type":"grid","columnCount":2},"style":{"spacing":{"blockGap":"1.75rem"}}} -->
-				<!-- wp:group {"className":"explore-jawai-card","layout":{"type":"constrained"}} -->
-				<div class="wp-block-group explore-jawai-card">
-					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","sizeSlug":"large"} /-->
-					<!-- wp:post-terms {"term":"category","style":{"typography":{"fontSize":"0.8125rem"}}} /-->
-					<!-- wp:post-title {"isLink":true,"fontSize":"large"} /-->
-					<!-- wp:post-date {"fontSize":"small","style":{"color":{"text":"#64748b"}}} /-->
-					<!-- wp:post-excerpt {"moreText":"Read full story →","excerptLength":22} /-->
-				</div>
-				<!-- /wp:group -->
-				<!-- /wp:post-template -->
-
-				<!-- wp:query-no-results -->
-				<!-- wp:paragraph -->
-				<p>No stories published yet.</p>
-				<!-- /wp:paragraph -->
-				<!-- /wp:query-no-results -->
-
-				<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"2.5rem"}}}} -->
-				<!-- wp:query-pagination-previous /-->
-				<!-- wp:query-pagination-numbers /-->
-				<!-- wp:query-pagination-next /-->
-				<!-- /wp:query-pagination -->
-			</div>
-			<!-- /wp:query -->
-		</div>
-		<!-- /wp:column -->
-
-		<!-- wp:column -->
-		<div class="wp-block-column">
-			<!-- wp:template-part {"slug":"sidebar","area":"uncategorized"} /-->
-		</div>
-		<!-- /wp:column -->
-	</div>
-	<!-- /wp:columns -->
 </main>
 <!-- /wp:group -->
 

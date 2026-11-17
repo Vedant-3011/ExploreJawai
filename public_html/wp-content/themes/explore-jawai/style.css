@@ -4,7 +4,7 @@ Theme URI: https://explorejawai.com
 Author: Explore Jawai
 Description: Travel and wildlife blog theme for Jawai, Rajasthan — child of Twenty Twenty-Four.
 Template: twentytwentyfour
-Version: 1.2.0
+Version: 1.2.1
 Requires at least: 6.4
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -45,12 +45,8 @@ a:where(:not(.wp-element-button)) {
 	background-color: var(--jawai-rust) !important;
 }
 
-/* Shared horizontal container */
-.explore-jawai-shell,
-.explore-jawai-header .wp-block-group.alignwide,
-.explore-jawai-section,
-.explore-jawai-blog-layout,
-.explore-jawai-footer .wp-block-group.alignwide {
+/* Shared horizontal container — one gutter system sitewide */
+body .explore-jawai-shell {
 	box-sizing: border-box;
 	width: 100%;
 	max-width: var(--ej-max);
@@ -58,6 +54,16 @@ a:where(:not(.wp-element-button)) {
 	margin-right: auto !important;
 	padding-left: var(--ej-gutter) !important;
 	padding-right: var(--ej-gutter) !important;
+}
+
+.explore-jawai-header-inner {
+	padding-top: 0.9rem !important;
+	padding-bottom: 0.9rem !important;
+}
+
+.explore-jawai-footer-inner {
+	padding-top: var(--ej-section-y) !important;
+	padding-bottom: var(--ej-section-y) !important;
 }
 
 .explore-jawai-main {
@@ -224,11 +230,6 @@ a:where(:not(.wp-element-button)) {
 	background: #fff;
 }
 
-.explore-jawai-header .alignwide {
-	padding-top: 0.9rem !important;
-	padding-bottom: 0.9rem !important;
-}
-
 .explore-jawai-header .wp-block-navigation {
 	gap: 1.5rem;
 }
@@ -236,11 +237,6 @@ a:where(:not(.wp-element-button)) {
 /* Footer */
 .explore-jawai-footer .wp-block-cover {
 	margin: 0;
-}
-
-.explore-jawai-footer > .wp-block-group.alignwide {
-	padding-top: var(--ej-section-y) !important;
-	padding-bottom: var(--ej-section-y) !important;
 }
 
 .explore-jawai-footer .wp-block-columns {
