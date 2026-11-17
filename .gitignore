@@ -1,0 +1,18 @@
+# Secrets — keep production config only on the server
+public_html/wp-config.php
+
+# WordPress runtime / cache
+public_html/wp-content/cache/
+public_html/wp-content/upgrade/
+public_html/wp-content/backups/
+public_html/wp-content/ai1wm-backups/
+**/*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Archives from sync
+*.tar.gz
