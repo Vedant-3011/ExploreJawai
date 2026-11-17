@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.5/theme.json",
+	"version": 2,
+	"title": "Explore Jawai",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"color": "#1e293b",
+					"name": "Jawai slate",
+					"slug": "jawai-slate"
+				},
+				{
+					"color": "#b45309",
+					"name": "Jawai rust",
+					"slug": "jawai-rust"
+				},
+				{
+					"color": "#e8dcc8",
+					"name": "Jawai sand",
+					"slug": "jawai-sand"
+				},
+				{
+					"color": "#ffffff",
+					"name": "White",
+					"slug": "white"
+				}
+			]
+		}
+	},
+	"styles": {
+		"elements": {
+			"link": {
+				"color": {
+					"text": "var:preset|color|jawai-rust"
+				}
+			}
+		}
+	}
+}

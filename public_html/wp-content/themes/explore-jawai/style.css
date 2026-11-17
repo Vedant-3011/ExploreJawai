@@ -1,0 +1,30 @@
+/*
+Theme Name: Explore Jawai
+Theme URI: https://explorejawai.com
+Author: Explore Jawai
+Description: Travel and wildlife blog theme for Jawai, Rajasthan — child of Twenty Twenty-Four.
+Template: twentytwentyfour
+Version: 1.0.0
+Requires at least: 6.4
+Tested up to: 6.8
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+Text Domain: explore-jawai
+Tags: blog, travel, photography, block-theme, full-site-editing
+*/
+
+/* Desert sunset accent on links and buttons */
+a:where(:not(.wp-element-button)) {
+  color: #b45309;
+}
+
+.wp-element-button,
+.wp-block-button__link {
+  background-color: #b45309 !important;
+}
+
+:root {
+  --wp--preset--color--jawai-sand: #e8dcc8;
+  --wp--preset--color--jawai-rust: #b45309;
+  --wp--preset--color--jawai-slate: #1e293b;
+}
