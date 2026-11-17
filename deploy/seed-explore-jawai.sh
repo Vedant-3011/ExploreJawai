@@ -62,13 +62,16 @@ wp post delete 1 --force 2>/dev/null || true
 create_post() {
   local title="$1"
   local content="$2"
-  local cats="$3"
-  local thumb="$4"
+  local thumb="$3"
+  shift 3
+  local cats=("$@")
   local id
   id=$(wp post create --post_type=post --post_status=publish --post_title="$title" \
     --post_content="$content" --porcelain)
-  # shellcheck disable=SC2086
-  wp post term set "$id" category $cats 2>/dev/null || true
+  if ((${#cats[@]})); then
+    # shellcheck disable=SC2068
+    wp post term set "$id" category "${cats[@]}" 2>/dev/null || true
+  fi
   if [[ -n "$thumb" && -n "$id" ]]; then
     wp post meta update "$id" _thumbnail_id "$thumb"
   fi
@@ -81,7 +84,7 @@ create_post "Welcome to Explore Jawai: India's Leopard Country" \
 <figure class=\"wp-block-image\"><img alt=\"Rajasthan landscape\" /></figure>
 <!-- /wp:image -->
 <p><em>Photo: stock imagery for illustration — replace with your own Jawai shots in wp-admin.</em></p>" \
-safari wildlife "$IMG_HERO"
+"$IMG_HERO" safari wildlife
 
 create_post "Best Time for a Jawai Safari" \
 "<p>October through March offers cool mornings ideal for leopard tracking. Summer brings dramatic light and fewer guests, but plan drives at dawn and dusk.</p>
@@ -90,22 +93,22 @@ create_post "Best Time for a Jawai Safari" \
 <li><strong>Monsoon tail (Sep–Oct):</strong> Green hills, active reptiles.</li>
 <li><strong>Summer (Apr–Jun):</strong> Waterholes concentrate wildlife — bring sun protection.</li>
 </ul>" \
-travel-tips safari "$IMG_DAWN"
+"$IMG_DAWN" travel-tips safari
 
 create_post "Granite Hills & Rabari Villages: Beyond the Big Cats" \
 "<p>Leopards may headline every trip, but Jawai's human landscape is just as compelling. Rabari communities still graze livestock among the boulders where cats rest by day.</p>
 <p>Respect village privacy, hire local guides, and choose lodges that work with communities rather than only the forest fringe.</p>" \
-culture wildlife "$IMG_VILLAGE"
+"$IMG_VILLAGE" culture wildlife
 
 create_post "Photography Tips for Dawn Patrol in Jawai" \
 "<p>Start 20 minutes before legal light. A 70–200mm or 100–400mm covers most encounters; wider lenses capture herons against pink granite.</p>
 <p>Turn off flash, keep voices low, and never bait or crowd a cat on a kill. Ethical images travel farther than stressed animals.</p>" \
-travel-tips wildlife "$IMG_SAFARI"
+"$IMG_SAFARI" travel-tips wildlife
 
 create_post "Planning Your First Stay Near Jawai Bandh" \
 "<p>Most visitors base themselves within 15–30 minutes of Jawai Dam. Compare lodges on guiding quality, naturalist ratios, and whether jeep routes are shared or private.</p>
 <p>Build in two full safari days minimum — leopards cooperate, but never on a strict timetable.</p>" \
-travel-tips safari "$IMG_LAND"
+"$IMG_LAND" travel-tips safari
 
 # Pages
 wp post update 2 --post_title='About Explore Jawai' --post_name='about' --post_status=publish \
