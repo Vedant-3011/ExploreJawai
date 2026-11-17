@@ -22,3 +22,6 @@ scripts/server_setup.py
 scripts/server_deploy_key.py
 scripts/server_git_ssh.py
 scripts/add_gha_deploy_key.py
+scripts/server_staging_setup.py
+scripts/add_gha_staging_key.py
+scripts/verify_staging.py
