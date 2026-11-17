@@ -25,3 +25,5 @@ scripts/add_gha_deploy_key.py
 scripts/server_staging_setup.py
 scripts/add_gha_staging_key.py
 scripts/verify_staging.py
+scripts/wp_reading_status.py
+scripts/fix_homepage_blog.py
