@@ -10,6 +10,11 @@ WordPress site for [explorejawai.com](https://explorejawai.com).
 | Staging | https://staging.explorejawai.com | `staging` | `/var/www/html/domain/explorejawai.com/staging_public_html` |
 | Local clone | — | — | `public_html/` |
 
+## Blog content
+
+- **Theme:** `explore-jawai` (child of Twenty Twenty-Four) with hero images under `wp-content/themes/explore-jawai/assets/images/`.
+- **Seed script:** `deploy/seed-explore-jawai.sh` (WP-CLI) creates categories, sample posts with featured images, About/Contact pages. Run once on server; remove `public_html/.explore-jawai-seeded` to re-run.
+
 ## Setup (local)
 
 1. Copy `public_html/wp-config.example.php` to `public_html/wp-config.php` and set database credentials (or use production values only on the server).
