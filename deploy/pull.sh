@@ -9,6 +9,7 @@ cd "${REPO_DIR}"
 git fetch origin
 git checkout main
 git pull --ff-only origin main
+# origin on server: git@github-explorejawai:Vedant-3011/ExploreJawai.git
 
 rsync -a --delete \
   --exclude 'wp-config.php' \

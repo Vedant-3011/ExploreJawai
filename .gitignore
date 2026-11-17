@@ -16,3 +16,8 @@ Thumbs.db
 
 # Archives from sync
 *.tar.gz
+
+# Local-only SSH helper (uses env password)
+scripts/server_setup.py
+scripts/server_deploy_key.py
+scripts/server_git_ssh.py

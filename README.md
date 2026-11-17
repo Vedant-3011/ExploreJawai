@@ -19,7 +19,7 @@ WordPress site for [explorejawai.com](https://explorejawai.com).
 From your machine (after pushing to GitHub):
 
 ```bash
-ssh root@72.61.255.120 'bash /var/www/html/domain/explorejawai.com/deploy/pull.sh'
+ssh root@72.61.255.120 'bash /var/www/html/domain/explorejawai.com/repo/deploy/pull.sh'
 ```
 
 Or on the server, from the site directory:
