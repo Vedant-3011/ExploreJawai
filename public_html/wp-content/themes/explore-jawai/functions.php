@@ -9,6 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+require_once get_stylesheet_directory() . '/inc/subscribe.php';
+
 add_action(
 	'wp_enqueue_scripts',
 	static function () {
@@ -22,7 +24,7 @@ add_action(
 			'explore-jawai',
 			get_stylesheet_uri(),
 			array( 'explore-jawai-parent' ),
-			'1.2.6'
+			'1.2.7'
 		);
 	}
 );
