@@ -113,12 +113,7 @@ create_post "Planning Your First Stay Near Jawai Bandh" \
 # About page (full Jawai content from repo)
 bash "$(dirname "$0")/set-about-page.sh"
 
-CONTACT_ID=$(wp post list --post_type=page --name=contact --field=ID 2>/dev/null || true)
-if [[ -z "$CONTACT_ID" ]]; then
-  CONTACT_ID=$(wp post create --post_type=page --post_status=publish --post_title='Contact' --post_name=contact \
-    --post_content='<p>Reach the Explore Jawai team at <a href="mailto:admin@explorejawai.com">admin@explorejawai.com</a>.</p>
-<p>For lodge bookings, please contact operators directly — we list stories, not inventory.</p>' --porcelain)
-fi
+bash "$(dirname "$0")/set-contact-page.sh"
 
 # Navigation
 MENU_ID=$(wp menu list --fields=term_id,name --format=csv | awk -F, '$2=="Main" {print $1}')
