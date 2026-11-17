@@ -4,7 +4,7 @@ Theme URI: https://explorejawai.com
 Author: Explore Jawai
 Description: Travel and wildlife blog theme for Jawai, Rajasthan — child of Twenty Twenty-Four.
 Template: twentytwentyfour
-Version: 1.1.0
+Version: 1.2.0
 Requires at least: 6.4
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -13,14 +13,27 @@ Text Domain: explore-jawai
 Tags: blog, travel, photography, block-theme, full-site-editing
 */
 
+/* —— Layout tokens —— */
 :root {
 	--jawai-rust: #b45309;
 	--jawai-slate: #1e293b;
 	--jawai-cream: #f8f6f2;
+	--ej-max: 1180px;
+	--ej-gutter: clamp(1.25rem, 4.5vw, 2.75rem);
+	--ej-section-y: clamp(2rem, 5vw, 3.5rem);
+	--ej-card-pad: 1.25rem;
+	--ej-radius: 12px;
+}
+
+/* Reset block theme outer padding so we control gutters */
+.wp-site-blocks {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
 
 body {
 	background-color: var(--jawai-cream);
+	margin: 0;
 }
 
 a:where(:not(.wp-element-button)) {
@@ -32,11 +45,85 @@ a:where(:not(.wp-element-button)) {
 	background-color: var(--jawai-rust) !important;
 }
 
+/* Shared horizontal container */
+.explore-jawai-shell,
+.explore-jawai-header .wp-block-group.alignwide,
+.explore-jawai-section,
+.explore-jawai-blog-layout,
+.explore-jawai-footer .wp-block-group.alignwide {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: var(--ej-max);
+	margin-left: auto !important;
+	margin-right: auto !important;
+	padding-left: var(--ej-gutter) !important;
+	padding-right: var(--ej-gutter) !important;
+}
+
+.explore-jawai-main {
+	padding-bottom: var(--ej-section-y);
+}
+
+/* Section intro under hero */
+.explore-jawai-section {
+	padding-top: var(--ej-section-y);
+	padding-bottom: 1.25rem;
+}
+
+.explore-jawai-section h2 {
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+}
+
+.explore-jawai-section p {
+	margin-top: 0;
+	margin-bottom: 0;
+	max-width: 62ch;
+	line-height: 1.6;
+}
+
+/* Two-column blog + sidebar */
+.explore-jawai-blog-layout {
+	display: flex;
+	flex-wrap: wrap;
+	gap: clamp(1.5rem, 3vw, 2.75rem) !important;
+	align-items: flex-start;
+	padding-top: 0.5rem;
+	padding-bottom: var(--ej-section-y);
+}
+
+.explore-jawai-blog-layout > .wp-block-column:first-child {
+	flex-basis: min(100%, 68%) !important;
+	flex-grow: 1;
+	min-width: 0;
+}
+
+.explore-jawai-blog-layout > .wp-block-column:last-child {
+	flex-basis: min(100%, 280px) !important;
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: 100%;
+	max-width: 320px;
+}
+
 /* Blog cards */
+.explore-jawai-post-cards .wp-block-post-template {
+	gap: clamp(1.25rem, 2.5vw, 2rem) !important;
+	align-items: stretch;
+}
+
 .explore-jawai-card {
-	box-shadow: 0 1px 3px rgba(30, 41, 59, 0.08);
-	padding: 0 0 1rem;
+	background: #fff;
+	border-radius: var(--ej-radius);
+	box-shadow: 0 2px 12px rgba(30, 41, 59, 0.07);
 	overflow: hidden;
+	border: 1px solid rgba(30, 41, 59, 0.06);
+	margin: 0;
+}
+
+.explore-jawai-card .wp-block-post-featured-image {
+	margin: 0;
+	line-height: 0;
 }
 
 .explore-jawai-card .wp-block-post-featured-image img {
@@ -44,28 +131,68 @@ a:where(:not(.wp-element-button)) {
 	aspect-ratio: 4 / 3;
 	object-fit: cover;
 	display: block;
+	border-radius: var(--ej-radius) var(--ej-radius) 0 0;
 }
 
-.explore-jawai-post-cards .wp-block-post-template {
-	align-items: stretch;
+.explore-jawai-card .wp-block-post-terms,
+.explore-jawai-card .wp-block-post-title,
+.explore-jawai-card .wp-block-post-date,
+.explore-jawai-card .wp-block-post-excerpt {
+	padding-left: var(--ej-card-pad);
+	padding-right: var(--ej-card-pad);
+	margin-top: 0;
+}
+
+.explore-jawai-card .wp-block-post-terms {
+	padding-top: var(--ej-card-pad);
+	margin-bottom: 0.35rem;
+}
+
+.explore-jawai-card .wp-block-post-title {
+	padding-top: 0.15rem;
+	margin-bottom: 0.35rem;
+	line-height: 1.3;
+}
+
+.explore-jawai-card .wp-block-post-date {
+	margin-bottom: 0.5rem;
+}
+
+.explore-jawai-card .wp-block-post-excerpt {
+	padding-bottom: var(--ej-card-pad);
+	margin-bottom: 0;
 }
 
 /* Sidebar */
 .explore-jawai-sidebar {
 	position: sticky;
-	top: 1.5rem;
+	top: 1.25rem;
+	padding: 1.35rem !important;
+	border-radius: var(--ej-radius);
+	border: 1px solid rgba(30, 41, 59, 0.08);
+}
+
+.explore-jawai-sidebar h3 {
+	margin-top: 0;
+	margin-bottom: 0.75rem;
+}
+
+.explore-jawai-sidebar .wp-block-categories-list,
+.explore-jawai-sidebar .wp-block-latest-posts__list {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 1rem;
+}
+
+.explore-jawai-sidebar .wp-block-categories-list li {
+	margin-bottom: 0.4rem;
+	line-height: 1.4;
 }
 
 .explore-jawai-sidebar .wp-block-categories-list a,
 .explore-jawai-sidebar .wp-block-latest-posts a {
 	text-decoration: none;
 	font-weight: 500;
-}
-
-.explore-jawai-sidebar .wp-block-latest-posts__list {
-	list-style: none;
-	padding: 0;
-	margin: 0;
 }
 
 .explore-jawai-sidebar .wp-block-latest-posts__post {
@@ -75,18 +202,60 @@ a:where(:not(.wp-element-button)) {
 	margin-bottom: 1rem;
 }
 
+.explore-jawai-sidebar .wp-block-latest-posts__featured-image {
+	flex-shrink: 0;
+}
+
 .explore-jawai-sidebar .wp-block-latest-posts__featured-image img {
-	width: 72px;
-	height: 72px;
+	width: 68px;
+	height: 68px;
 	object-fit: cover;
-	border-radius: 6px;
+	border-radius: 8px;
+	display: block;
+}
+
+.explore-jawai-sidebar .wp-block-search {
+	margin-top: 0.25rem;
+}
+
+/* Header */
+.explore-jawai-header {
+	border-bottom: 1px solid #e8dcc8;
+	background: #fff;
+}
+
+.explore-jawai-header .alignwide {
+	padding-top: 0.9rem !important;
+	padding-bottom: 0.9rem !important;
+}
+
+.explore-jawai-header .wp-block-navigation {
+	gap: 1.5rem;
 }
 
 /* Footer */
+.explore-jawai-footer .wp-block-cover {
+	margin: 0;
+}
+
+.explore-jawai-footer > .wp-block-group.alignwide {
+	padding-top: var(--ej-section-y) !important;
+	padding-bottom: var(--ej-section-y) !important;
+}
+
+.explore-jawai-footer .wp-block-columns {
+	gap: clamp(1.5rem, 3vw, 2.5rem) !important;
+}
+
 .explore-jawai-footer .wp-block-categories-list,
 .explore-jawai-footer .wp-block-latest-posts__list {
 	list-style: none;
-	padding-left: 0;
+	padding: 0;
+	margin: 0;
+}
+
+.explore-jawai-footer .wp-block-categories-list li {
+	margin-bottom: 0.45rem;
 }
 
 .explore-jawai-footer .wp-block-categories-list a,
@@ -105,18 +274,23 @@ a:where(:not(.wp-element-button)) {
 	display: flex;
 	gap: 0.75rem;
 	margin-bottom: 0.85rem;
-	align-items: center;
+	align-items: flex-start;
 }
 
 .explore-jawai-footer-recent .wp-block-latest-posts__featured-image img {
-	width: 56px;
-	height: 56px;
+	width: 52px;
+	height: 52px;
 	object-fit: cover;
-	border-radius: 6px;
+	border-radius: 8px;
+}
+
+.explore-jawai-footer-brand {
+	margin-bottom: 0.75rem !important;
 }
 
 .explore-jawai-footer-brand img {
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+	border-radius: 8px;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .explore-jawai-footer .wp-block-site-title a {
@@ -124,21 +298,40 @@ a:where(:not(.wp-element-button)) {
 	text-decoration: none;
 }
 
-/* Layout */
-@media (max-width: 781px) {
-	.explore-jawai-blog-layout {
-		flex-direction: column !important;
+.explore-jawai-footer .wp-block-separator {
+	margin: 2rem 0 1.25rem;
+	opacity: 0.35;
+}
+
+/* Query pagination */
+.explore-jawai-main .wp-block-query-pagination {
+	margin-top: 2.5rem !important;
+}
+
+/* —— Responsive —— */
+@media (max-width: 960px) {
+	.explore-jawai-blog-layout > .wp-block-column:last-child {
+		max-width: 100%;
+		flex-basis: 100% !important;
 	}
 
-	.explore-jawai-blog-layout > .wp-block-column {
-		flex-basis: 100% !important;
+	.explore-jawai-post-cards .wp-block-post-template {
+		grid-template-columns: 1fr !important;
 	}
 
 	.explore-jawai-sidebar {
 		position: static;
 	}
+}
 
-	.explore-jawai-post-cards .wp-block-post-template {
-		grid-template-columns: 1fr !important;
+@media (max-width: 600px) {
+	:root {
+		--ej-gutter: 1.15rem;
+	}
+
+	.explore-jawai-header .wp-block-group.alignwide {
+		flex-direction: column;
+		align-items: flex-start !important;
+		gap: 0.75rem;
 	}
 }

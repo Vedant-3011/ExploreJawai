@@ -22,7 +22,7 @@ add_action(
 			'explore-jawai',
 			get_stylesheet_uri(),
 			array( 'explore-jawai-parent' ),
-			wp_get_theme()->get( 'Version' )
+			'1.2.0'
 		);
 	}
 );

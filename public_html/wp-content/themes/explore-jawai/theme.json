@@ -38,8 +38,12 @@
 			]
 		},
 		"layout": {
-			"contentSize": "1200px",
-			"wideSize": "1320px"
+			"contentSize": "1180px",
+			"wideSize": "1180px"
+		},
+		"spacing": {
+			"padding": true,
+			"units": ["%", "px", "em", "rem", "vw", "vh"]
 		}
 	},
 	"templateParts": [
