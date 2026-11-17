@@ -21,3 +21,4 @@ Thumbs.db
 scripts/server_setup.py
 scripts/server_deploy_key.py
 scripts/server_git_ssh.py
+scripts/add_gha_deploy_key.py

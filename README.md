@@ -16,17 +16,16 @@ WordPress site for [explorejawai.com](https://explorejawai.com).
 
 ## Deploy to production
 
-From your machine (after pushing to GitHub):
+### Auto deploy (default)
+
+Every **push to `main`** runs [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) and runs `deploy/pull.sh` on the server via SSH (GitHub Actions secrets: `DEPLOY_HOST`, `DEPLOY_USER`, `DEPLOY_SSH_KEY`).
+
+You can also trigger a deploy manually: GitHub → **Actions** → **Deploy to explorejawai.com** → **Run workflow**.
+
+### Manual deploy
 
 ```bash
 ssh root@72.61.255.120 'bash /var/www/html/domain/explorejawai.com/repo/deploy/pull.sh'
-```
-
-Or on the server, from the site directory:
-
-```bash
-cd /var/www/html/domain/explorejawai.com
-./deploy/pull.sh
 ```
 
 `wp-config.php` on the server is never overwritten by git.
