@@ -6,6 +6,11 @@
 		"color": {
 			"palette": [
 				{
+					"color": "#1a2332",
+					"name": "Jawai night",
+					"slug": "jawai-night"
+				},
+				{
 					"color": "#1e293b",
 					"name": "Jawai slate",
 					"slug": "jawai-slate"
@@ -21,18 +26,53 @@
 					"slug": "jawai-sand"
 				},
 				{
+					"color": "#f8f6f2",
+					"name": "Jawai cream",
+					"slug": "jawai-cream"
+				},
+				{
 					"color": "#ffffff",
 					"name": "White",
 					"slug": "white"
 				}
 			]
+		},
+		"layout": {
+			"contentSize": "1200px",
+			"wideSize": "1320px"
 		}
 	},
+	"templateParts": [
+		{
+			"name": "header",
+			"title": "Header",
+			"area": "header"
+		},
+		{
+			"name": "footer",
+			"title": "Footer",
+			"area": "footer"
+		},
+		{
+			"name": "sidebar",
+			"title": "Sidebar",
+			"area": "uncategorized"
+		}
+	],
 	"styles": {
+		"color": {
+			"background": "#f8f6f2",
+			"text": "#1e293b"
+		},
 		"elements": {
 			"link": {
 				"color": {
 					"text": "var:preset|color|jawai-rust"
+				},
+				":hover": {
+					"color": {
+						"text": "#92400e"
+					}
 				}
 			}
 		}

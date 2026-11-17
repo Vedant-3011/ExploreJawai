@@ -42,6 +42,14 @@ add_action(
 add_action(
 	'after_setup_theme',
 	static function () {
-		add_theme_support( 'custom-logo' );
+		add_theme_support(
+			'custom-logo',
+			array(
+				'height'      => 120,
+				'width'       => 120,
+				'flex-height' => true,
+				'flex-width'  => true,
+			)
+		);
 	}
 );

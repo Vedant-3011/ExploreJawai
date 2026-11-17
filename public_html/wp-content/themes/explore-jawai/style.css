@@ -4,7 +4,7 @@ Theme URI: https://explorejawai.com
 Author: Explore Jawai
 Description: Travel and wildlife blog theme for Jawai, Rajasthan — child of Twenty Twenty-Four.
 Template: twentytwentyfour
-Version: 1.0.0
+Version: 1.1.0
 Requires at least: 6.4
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -13,29 +13,132 @@ Text Domain: explore-jawai
 Tags: blog, travel, photography, block-theme, full-site-editing
 */
 
-/* Desert sunset accent on links and buttons */
+:root {
+	--jawai-rust: #b45309;
+	--jawai-slate: #1e293b;
+	--jawai-cream: #f8f6f2;
+}
+
+body {
+	background-color: var(--jawai-cream);
+}
+
 a:where(:not(.wp-element-button)) {
-  color: #b45309;
+	color: var(--jawai-rust);
 }
 
 .wp-element-button,
 .wp-block-button__link {
-  background-color: #b45309 !important;
+	background-color: var(--jawai-rust) !important;
 }
 
-:root {
-  --wp--preset--color--jawai-sand: #e8dcc8;
-  --wp--preset--color--jawai-rust: #b45309;
-  --wp--preset--color--jawai-slate: #1e293b;
+/* Blog cards */
+.explore-jawai-card {
+	box-shadow: 0 1px 3px rgba(30, 41, 59, 0.08);
+	padding: 0 0 1rem;
+	overflow: hidden;
 }
 
-/* Homepage blog grid */
-main .wp-block-post-featured-image img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+.explore-jawai-card .wp-block-post-featured-image img {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	display: block;
 }
 
-main .wp-block-query .wp-block-post-template {
-  margin-bottom: 2rem;
+.explore-jawai-post-cards .wp-block-post-template {
+	align-items: stretch;
+}
+
+/* Sidebar */
+.explore-jawai-sidebar {
+	position: sticky;
+	top: 1.5rem;
+}
+
+.explore-jawai-sidebar .wp-block-categories-list a,
+.explore-jawai-sidebar .wp-block-latest-posts a {
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.explore-jawai-sidebar .wp-block-latest-posts__list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.explore-jawai-sidebar .wp-block-latest-posts__post {
+	display: flex;
+	gap: 0.75rem;
+	align-items: flex-start;
+	margin-bottom: 1rem;
+}
+
+.explore-jawai-sidebar .wp-block-latest-posts__featured-image img {
+	width: 72px;
+	height: 72px;
+	object-fit: cover;
+	border-radius: 6px;
+}
+
+/* Footer */
+.explore-jawai-footer .wp-block-categories-list,
+.explore-jawai-footer .wp-block-latest-posts__list {
+	list-style: none;
+	padding-left: 0;
+}
+
+.explore-jawai-footer .wp-block-categories-list a,
+.explore-jawai-footer .wp-block-latest-posts a {
+	color: #e2e8f0;
+	text-decoration: none;
+}
+
+.explore-jawai-footer .wp-block-categories-list a:hover,
+.explore-jawai-footer .wp-block-latest-posts a:hover {
+	color: #fdba74;
+}
+
+.explore-jawai-footer-recent .wp-block-latest-posts__post,
+.explore-jawai-footer-recent li {
+	display: flex;
+	gap: 0.75rem;
+	margin-bottom: 0.85rem;
+	align-items: center;
+}
+
+.explore-jawai-footer-recent .wp-block-latest-posts__featured-image img {
+	width: 56px;
+	height: 56px;
+	object-fit: cover;
+	border-radius: 6px;
+}
+
+.explore-jawai-footer-brand img {
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.explore-jawai-footer .wp-block-site-title a {
+	color: #fff !important;
+	text-decoration: none;
+}
+
+/* Layout */
+@media (max-width: 781px) {
+	.explore-jawai-blog-layout {
+		flex-direction: column !important;
+	}
+
+	.explore-jawai-blog-layout > .wp-block-column {
+		flex-basis: 100% !important;
+	}
+
+	.explore-jawai-sidebar {
+		position: static;
+	}
+
+	.explore-jawai-post-cards .wp-block-post-template {
+		grid-template-columns: 1fr !important;
+	}
 }
