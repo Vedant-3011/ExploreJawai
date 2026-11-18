@@ -338,6 +338,18 @@ ul.explore-jawai-post-cards.wp-block-post-template,
 	display: none !important;
 }
 
+.explore-jawai-header-nav .wp-block-navigation__responsive-container-open {
+	display: none !important;
+}
+
+.explore-jawai-header-nav .wp-block-navigation__responsive-container {
+	display: block !important;
+	position: static !important;
+	width: auto !important;
+	background: transparent !important;
+	padding: 0 !important;
+}
+
 /* Footer */
 .explore-jawai-footer {
 	padding-left: var(--ej-gutter) !important;
