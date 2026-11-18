@@ -20,5 +20,6 @@ rsync -a --delete \
 chown -R www-data:www-data "${PUBLIC}"
 
 bash "${REPO_DIR}/deploy/flush-fse-overrides.sh" "${PUBLIC}"
+bash "${REPO_DIR}/deploy/ensure-journal-posts.sh" "${PUBLIC}"
 
 echo "Deploy complete: ${PUBLIC}"

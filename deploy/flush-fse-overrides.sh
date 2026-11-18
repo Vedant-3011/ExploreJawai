@@ -21,9 +21,11 @@ for name in home single; do
 	done
 done
 
-for id in $(wp --allow-root --path="${PUBLIC}" post list --post_type=wp_template_part --name=header --format=ids 2>/dev/null || true); do
-	wp --allow-root --path="${PUBLIC}" post delete "${id}" --force
-	echo "Deleted customized header template part (ID ${id})"
+for part in header footer; do
+	for id in $(wp --allow-root --path="${PUBLIC}" post list --post_type=wp_template_part --name="${part}" --format=ids 2>/dev/null || true); do
+		wp --allow-root --path="${PUBLIC}" post delete "${id}" --force
+		echo "Deleted customized template part ${part} (ID ${id})"
+	done
 done
 
 wp --allow-root --path="${PUBLIC}" cache flush 2>/dev/null || true
