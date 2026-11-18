@@ -4,7 +4,7 @@ Theme URI: https://explorejawai.com
 Author: Explore Jawai
 Description: Travel and wildlife blog theme for Jawai, Rajasthan — child of Twenty Twenty-Four.
 Template: twentytwentyfour
-Version: 1.3.5
+Version: 1.3.6
 Requires at least: 6.4
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -871,7 +871,7 @@ ul.explore-jawai-post-cards.wp-block-post-template,
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.5rem;
-	align-items: stretch;
+	align-items: center;
 	width: 100%;
 }
 
@@ -898,11 +898,19 @@ ul.explore-jawai-post-cards.wp-block-post-template,
 
 .explore-jawai-subscribe-button {
 	flex: 0 0 auto;
+	box-sizing: border-box;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	min-height: 2.75rem;
 	padding: 0.6rem 1.1rem !important;
 	border: none;
 	border-radius: 8px;
 	font-size: 0.9rem;
 	font-weight: 600;
+	line-height: 1.25 !important;
+	text-align: center !important;
+	color: #fff !important;
 	cursor: pointer;
 	white-space: nowrap;
 }
@@ -961,6 +969,82 @@ ul.explore-jawai-post-cards.wp-block-post-template,
 /* Query pagination */
 .explore-jawai-main .wp-block-query-pagination {
 	margin-top: 2.5rem !important;
+}
+
+/* —— Single post article (readable paragraph spacing) —— */
+.explore-jawai-single .wp-block-post-title {
+	margin-top: 0;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+}
+
+.explore-jawai-article-prose,
+.explore-jawai-single .wp-block-post-content {
+	--ej-prose-space: 1.2rem;
+	max-width: 720px;
+	line-height: 1.72;
+	color: #334155;
+	font-size: 1.05rem;
+}
+
+.explore-jawai-article-prose.is-layout-flow > * + *,
+.explore-jawai-single .wp-block-post-content.is-layout-flow > * + * {
+	margin-block-start: var(--ej-prose-space) !important;
+}
+
+/* Classic editor + blocks: zero paragraph margins; gaps come from flow siblings */
+.explore-jawai-article-prose :where(p, .wp-block-paragraph),
+.explore-jawai-single .wp-block-post-content :where(p, .wp-block-paragraph) {
+	margin-block: 0 !important;
+}
+
+/* Fallback when paragraphs are not direct children (rare classic markup) */
+.explore-jawai-article-prose p + p,
+.explore-jawai-single .wp-block-post-content p + p {
+	margin-block-start: var(--ej-prose-space) !important;
+}
+
+.explore-jawai-article-prose :where(h2, h3, h4, .wp-block-heading),
+.explore-jawai-single .wp-block-post-content :where(h2, h3, h4, .wp-block-heading) {
+	margin-block: 0;
+	line-height: 1.3;
+	color: #1a2332;
+}
+
+.explore-jawai-article-prose.is-layout-flow > :where(h2, h3, h4, .wp-block-heading) + *,
+.explore-jawai-single .wp-block-post-content.is-layout-flow > :where(h2, h3, h4, .wp-block-heading) + * {
+	margin-block-start: 0.65rem !important;
+}
+
+.explore-jawai-article-prose.is-layout-flow > * + :where(h2, h3, h4, .wp-block-heading),
+.explore-jawai-single .wp-block-post-content.is-layout-flow > * + :where(h2, h3, h4, .wp-block-heading) {
+	margin-block-start: 1.85rem !important;
+}
+
+.explore-jawai-article-prose :where(ul, ol),
+.explore-jawai-single .wp-block-post-content :where(ul, ol) {
+	margin-block: 0 var(--ej-prose-space);
+	padding-inline-start: 1.35rem;
+}
+
+.explore-jawai-article-prose :where(li + li),
+.explore-jawai-single .wp-block-post-content :where(li + li) {
+	margin-block-start: 0.4rem;
+}
+
+.explore-jawai-article-prose :where(.wp-block-image, figure.wp-block-image),
+.explore-jawai-single .wp-block-post-content :where(.wp-block-image, figure.wp-block-image) {
+	margin-block: 1.75rem;
+}
+
+.explore-jawai-article-prose :where(.wp-block-quote, blockquote),
+.explore-jawai-single .wp-block-post-content :where(.wp-block-quote, blockquote) {
+	margin-block: 1.75rem;
+}
+
+.explore-jawai-article-prose :where(.wp-block-separator),
+.explore-jawai-single .wp-block-post-content :where(.wp-block-separator) {
+	margin-block: 2rem;
 }
 
 /* —— Static pages (About, Contact) —— */

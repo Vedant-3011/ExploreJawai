@@ -14,9 +14,11 @@ if [[ ! -f "${PUBLIC}/wp-config.php" ]]; then
 	exit 0
 fi
 
-for id in $(wp --allow-root --path="${PUBLIC}" post list --post_type=wp_template --name=home --format=ids 2>/dev/null || true); do
-	wp --allow-root --path="${PUBLIC}" post delete "${id}" --force
-	echo "Deleted customized wp_template home (ID ${id})"
+for name in home single; do
+	for id in $(wp --allow-root --path="${PUBLIC}" post list --post_type=wp_template --name="${name}" --format=ids 2>/dev/null || true); do
+		wp --allow-root --path="${PUBLIC}" post delete "${id}" --force
+		echo "Deleted customized wp_template ${name} (ID ${id})"
+	done
 done
 
 for id in $(wp --allow-root --path="${PUBLIC}" post list --post_type=wp_template_part --name=header --format=ids 2>/dev/null || true); do
