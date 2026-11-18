@@ -71,6 +71,11 @@
 			"name": "sidebar",
 			"title": "Sidebar",
 			"area": "uncategorized"
+		},
+		{
+			"name": "sidebar-home",
+			"title": "Home sidebar",
+			"area": "uncategorized"
 		}
 	],
 	"styles": {
