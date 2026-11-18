@@ -26,7 +26,7 @@ function explore_jawai_subscribe_form_html() {
 
 	ob_start();
 	?>
-	<div class="explore-jawai-subscribe">
+	<div id="explore-jawai-subscribe" class="explore-jawai-subscribe">
 		<h3 class="explore-jawai-footer-heading"><?php esc_html_e( 'Subscribe', 'explore-jawai' ); ?></h3>
 		<p class="explore-jawai-subscribe-lead"><?php esc_html_e( 'New Jawai safari guides and field notes — one email when we publish, no spam.', 'explore-jawai' ); ?></p>
 		<?php if ( 'success' === $status ) : ?>

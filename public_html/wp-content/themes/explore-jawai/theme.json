@@ -26,6 +26,16 @@
 					"slug": "jawai-sand"
 				},
 				{
+					"color": "#c9a227",
+					"name": "Jawai gold",
+					"slug": "jawai-gold"
+				},
+				{
+					"color": "#0a1628",
+					"name": "Jawai header",
+					"slug": "jawai-header"
+				},
+				{
 					"color": "#f8f6f2",
 					"name": "Jawai cream",
 					"slug": "jawai-cream"
