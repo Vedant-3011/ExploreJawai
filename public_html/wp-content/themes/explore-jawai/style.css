@@ -4,7 +4,7 @@ Theme URI: https://explorejawai.com
 Author: Explore Jawai
 Description: Travel and wildlife blog theme for Jawai, Rajasthan — child of Twenty Twenty-Four.
 Template: twentytwentyfour
-Version: 1.2.8
+Version: 1.2.9
 Requires at least: 6.4
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -93,6 +93,8 @@ main.explore-jawai-main {
 .explore-jawai-header-inner {
 	padding-top: 0.9rem !important;
 	padding-bottom: 0.9rem !important;
+	flex-wrap: nowrap !important;
+	gap: 1rem;
 }
 
 .explore-jawai-footer-inner {
@@ -294,8 +296,46 @@ ul.explore-jawai-post-cards.wp-block-post-template,
 	padding-right: 0 !important;
 }
 
-.explore-jawai-header .wp-block-navigation {
-	gap: 1.5rem;
+.explore-jawai-header .wp-block-site-title,
+.explore-jawai-header .explore-jawai-site-title,
+.explore-jawai-header .wp-block-site-title a {
+	font-weight: 400 !important;
+	letter-spacing: 0.01em;
+	text-decoration: none;
+}
+
+.explore-jawai-header-brand {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.explore-jawai-header-nav,
+.explore-jawai-header .explore-jawai-header-nav {
+	flex: 0 0 auto;
+}
+
+.explore-jawai-header-nav .wp-block-navigation__container,
+.explore-jawai-header .wp-block-navigation__container {
+	flex-wrap: nowrap !important;
+	gap: 1.75rem !important;
+}
+
+.explore-jawai-header-nav .wp-block-navigation-item a,
+.explore-jawai-header .wp-block-navigation-item a {
+	white-space: nowrap;
+	font-weight: 500;
+	color: var(--jawai-slate) !important;
+	text-decoration: none;
+}
+
+.explore-jawai-header-nav .wp-block-navigation-item a:hover,
+.explore-jawai-header .wp-block-navigation-item a:hover {
+	color: var(--jawai-rust) !important;
+}
+
+/* Hide custom logo in header if still set in WordPress */
+.explore-jawai-header .wp-block-site-logo {
+	display: none !important;
 }
 
 /* Footer */

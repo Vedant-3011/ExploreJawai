@@ -8,11 +8,7 @@ wp() { command wp --allow-root --path="$WP_PATH" "$@" ; }
 wp theme activate explore-jawai
 wp option update blogdescription 'Leopard hills, Rabari culture & safari guides from Jawai, Rajasthan'
 
-# Site logo for header
-LOGO_ID=$(wp media import "$IMG" --title="Explore Jawai logo" --porcelain 2>/dev/null | tail -1 || true)
-if [[ -n "$LOGO_ID" ]]; then
-  wp option update site_logo "$LOGO_ID"
-fi
+bash "$(dirname "$0")/clear-site-logo.sh"
 
 # Main menu
 MENU_ID=$(wp menu list --fields=term_id,name --format=csv | awk -F, '$2=="Main" {print $1}')

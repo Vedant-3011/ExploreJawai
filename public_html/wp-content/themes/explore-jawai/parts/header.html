@@ -1,22 +1,20 @@
 <!-- wp:group {"align":"full","className":"explore-jawai-header","layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull explore-jawai-header">
-	<!-- wp:group {"className":"explore-jawai-shell explore-jawai-header-inner","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap","verticalAlignment":"center"}} -->
+	<!-- wp:group {"className":"explore-jawai-shell explore-jawai-header-inner","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"nowrap","verticalAlignment":"center"}} -->
 	<div class="wp-block-group explore-jawai-shell explore-jawai-header-inner">
-		<!-- wp:group {"style":{"spacing":{"blockGap":"12px"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
-		<div class="wp-block-group">
-			<!-- wp:site-logo {"width":48,"shouldSyncIcon":true} /-->
-			<!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"constrained"}} -->
-			<div class="wp-block-group">
-				<!-- wp:site-title {"level":0,"fontSize":"medium"} /-->
-				<!-- wp:paragraph {"fontSize":"small","style":{"color":{"text":"#64748b"},"spacing":{"margin":{"top":"0.15rem"}}}} -->
-				<p class="has-text-color has-small-font-size" style="color:#64748b;margin-top:0.15rem">Jawai, Rajasthan</p>
-				<!-- /wp:paragraph -->
-			</div>
-			<!-- /wp:group -->
+		<!-- wp:group {"className":"explore-jawai-header-brand","style":{"spacing":{"blockGap":"0"}},"layout":{"type":"constrained"}} -->
+		<div class="wp-block-group explore-jawai-header-brand">
+			<!-- wp:site-title {"level":0,"fontSize":"medium","className":"explore-jawai-site-title"} /-->
+			<!-- wp:paragraph {"fontSize":"small","className":"explore-jawai-header-tagline","style":{"color":{"text":"#64748b"},"spacing":{"margin":{"top":"0.15rem","bottom":"0"}}}} -->
+			<p class="explore-jawai-header-tagline has-text-color has-small-font-size" style="color:#64748b;margin-top:0.15rem;margin-bottom:0">Jawai, Rajasthan</p>
+			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->
 
-		<!-- wp:navigation {"layout":{"type":"flex","justifyContent":"right"},"style":{"spacing":{"blockGap":"1.5rem"},"typography":{"fontSize":"0.95rem"}}} /-->
+		<!-- wp:navigation {"overlayMenu":"never","className":"explore-jawai-header-nav","layout":{"type":"flex","justifyContent":"right","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"1.75rem"},"typography":{"fontSize":"0.95rem"}}} -->
+			<!-- wp:navigation-link {"label":"About Jawai","url":"https://explorejawai.com/about/","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Contact us","url":"https://explorejawai.com/contact/","kind":"custom","isTopLevelLink":true} /-->
+		<!-- /wp:navigation -->
 	</div>
 	<!-- /wp:group -->
 </div>
