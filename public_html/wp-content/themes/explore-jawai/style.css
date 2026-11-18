@@ -4,7 +4,7 @@ Theme URI: https://explorejawai.com
 Author: Explore Jawai
 Description: Travel and wildlife blog theme for Jawai, Rajasthan — child of Twenty Twenty-Four.
 Template: twentytwentyfour
-Version: 1.4.2
+Version: 1.4.3
 Requires at least: 6.4
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -559,10 +559,13 @@ ul.explore-jawai-post-cards.wp-block-post-template,
 	flex-shrink: 0;
 }
 
-.explore-jawai-brand-logo {
+.explore-jawai-brand-logo,
+.explore-jawai-brand-logo figure {
 	margin: 0 !important;
 	line-height: 0;
 	flex-shrink: 0;
+	width: auto !important;
+	max-width: none !important;
 }
 
 .explore-jawai-brand-logo a {
@@ -572,12 +575,13 @@ ul.explore-jawai-post-cards.wp-block-post-template,
 	border: 0;
 }
 
-.explore-jawai-brand-logo img {
+.explore-jawai-brand-logo img,
+.explore-jawai-header-brand .wp-block-image img {
 	display: block;
-	width: min(270px, 58vw);
-	height: auto;
-	max-height: 62px;
-	min-height: 44px;
+	width: min(270px, 58vw) !important;
+	height: auto !important;
+	max-height: 62px !important;
+	min-width: 180px;
 	object-fit: contain;
 	object-position: left center;
 }
@@ -586,10 +590,12 @@ ul.explore-jawai-post-cards.wp-block-post-template,
 	margin-bottom: 0.15rem !important;
 }
 
-.explore-jawai-footer .explore-jawai-footer-logo img {
-	width: min(250px, 56vw);
-	max-height: 58px;
-	min-height: 40px;
+.explore-jawai-footer .explore-jawai-footer-logo img,
+.explore-jawai-footer-col-brand .wp-block-image img {
+	width: min(250px, 56vw) !important;
+	height: auto !important;
+	max-height: 58px !important;
+	min-width: 160px;
 }
 
 /* White wordmark + leopard lockup on dark header/footer bars */
