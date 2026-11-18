@@ -12,10 +12,8 @@ if [[ ! -f "$LOGO" ]]; then
 	echo "Logo file missing; skip site logo."
 	exit 0
 fi
-ATT=$(wp --allow-root --path="$WP_PATH" post list --post_type=attachment --name=explore-jawai-logo --field=ID 2>/dev/null || true)
-if [[ -z "$ATT" ]]; then
-	ATT=$(wp --allow-root --path="$WP_PATH" media import "$LOGO" --title="Explore Jawai logo" --porcelain 2>/dev/null | tail -1)
-fi
+ATT=$(wp --allow-root --path="$WP_PATH" media import "$LOGO" --title="Explore Jawai logo" --porcelain 2>/dev/null | tail -1)
+# Always refresh from theme file so header/footer updates match Site Icon/logo in admin.
 if [[ -n "$ATT" ]]; then
 	wp --allow-root --path="$WP_PATH" option update site_logo "$ATT"
 	echo "Site logo set to attachment $ATT"

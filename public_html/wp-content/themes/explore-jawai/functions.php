@@ -25,7 +25,7 @@ add_action(
 			'explore-jawai',
 			get_stylesheet_uri(),
 			array( 'explore-jawai-parent' ),
-			'1.4.0'
+			'1.4.1'
 		);
 	}
 );
