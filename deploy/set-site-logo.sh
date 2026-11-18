@@ -3,6 +3,9 @@ set -euo pipefail
 WP_PATH="${WP_PATH:-/var/www/html/domain/explorejawai.com/public_html}"
 LOGO="${WP_PATH}/wp-content/themes/explore-jawai/assets/images/explore-jawai-logo-transparent.png"
 if [[ ! -f "$LOGO" ]]; then
+	LOGO="${WP_PATH}/wp-content/themes/explore-jawai/assets/images/explore-jawai-logo-white.png"
+fi
+if [[ ! -f "$LOGO" ]]; then
 	LOGO="${WP_PATH}/wp-content/themes/explore-jawai/assets/images/explore-jawai-logo.png"
 fi
 if [[ ! -f "$LOGO" ]]; then

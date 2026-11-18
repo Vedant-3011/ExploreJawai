@@ -4,7 +4,7 @@ Theme URI: https://explorejawai.com
 Author: Explore Jawai
 Description: Travel and wildlife blog theme for Jawai, Rajasthan — child of Twenty Twenty-Four.
 Template: twentytwentyfour
-Version: 1.3.8
+Version: 1.4.0
 Requires at least: 6.4
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -556,6 +556,38 @@ ul.explore-jawai-post-cards.wp-block-post-template,
 .explore-jawai-header-brand {
 	justify-self: start;
 	min-width: 0;
+}
+
+.explore-jawai-brand-logo {
+	margin: 0 !important;
+	line-height: 0;
+}
+
+.explore-jawai-brand-logo a {
+	display: inline-block;
+	line-height: 0;
+	text-decoration: none;
+	border: 0;
+}
+
+.explore-jawai-brand-logo img {
+	display: block;
+	width: auto;
+	height: clamp(48px, 9vw, 64px);
+	max-width: min(280px, 52vw);
+	object-fit: contain;
+	object-position: left center;
+}
+
+.explore-jawai-footer .explore-jawai-footer-logo img {
+	height: clamp(44px, 8vw, 58px);
+	max-width: min(260px, 48vw);
+}
+
+/* White wordmark + leopard lockup on dark header/footer bars */
+.explore-jawai-header .explore-jawai-brand-logo img,
+.explore-jawai-footer .explore-jawai-brand-logo img {
+	filter: none;
 }
 
 .explore-jawai-header .wp-block-site-title,
