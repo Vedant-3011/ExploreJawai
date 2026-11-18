@@ -4,7 +4,7 @@ Theme URI: https://explorejawai.com
 Author: Explore Jawai
 Description: Travel and wildlife blog theme for Jawai, Rajasthan — child of Twenty Twenty-Four.
 Template: twentytwentyfour
-Version: 1.3.1
+Version: 1.3.2
 Requires at least: 6.4
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -118,6 +118,152 @@ main.explore-jawai-main {
 	margin-bottom: 0;
 	max-width: 62ch;
 	line-height: 1.6;
+}
+
+/* —— Home journal grid (reference-style cards) —— */
+.explore-jawai-journal-intro {
+	text-align: center;
+	padding-top: var(--ej-section-y);
+	padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.explore-jawai-journal-intro .explore-jawai-journal-title,
+.explore-jawai-journal-title {
+	margin: 0 0 0.65rem;
+	font-size: clamp(1.65rem, 3.5vw, 2.25rem);
+	font-weight: 600;
+	letter-spacing: -0.02em;
+	color: #1a2332;
+}
+
+.explore-jawai-journal-lead {
+	max-width: 48ch;
+	margin: 0 auto !important;
+	color: #64748b;
+	font-size: 1.05rem;
+	line-height: 1.6;
+}
+
+.explore-jawai-home-query {
+	width: 100%;
+	padding-bottom: var(--ej-section-y);
+}
+
+ul.explore-jawai-post-cards--journal.wp-block-post-template,
+.explore-jawai-post-cards--journal.wp-block-post-template {
+	display: grid !important;
+	grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+	gap: clamp(1.25rem, 2.5vw, 2rem) !important;
+	align-items: stretch;
+	width: 100%;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.explore-jawai-journal-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	border-radius: 14px;
+	padding-bottom: 1.35rem;
+}
+
+.explore-jawai-journal-card .wp-block-post-featured-image img {
+	aspect-ratio: 4 / 3;
+	border-radius: 14px 14px 0 0;
+}
+
+.explore-jawai-journal-card .wp-block-post-date.explore-jawai-card-date,
+.explore-jawai-journal-card .explore-jawai-card-date {
+	padding: 1.1rem var(--ej-card-pad) 0.4rem;
+	margin: 0;
+	font-size: 0.8rem !important;
+	color: #64748b !important;
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+
+.explore-jawai-journal-card .explore-jawai-card-date::before {
+	content: "";
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	flex-shrink: 0;
+	background-color: var(--jawai-gold);
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='3' y='4' width='18' height='18' rx='2'/%3E%3Cpath d='M16 2v4M8 2v4M3 10h18'/%3E%3C/svg%3E");
+	mask-size: contain;
+	mask-repeat: no-repeat;
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='3' y='4' width='18' height='18' rx='2'/%3E%3Cpath d='M16 2v4M8 2v4M3 10h18'/%3E%3C/svg%3E");
+	-webkit-mask-size: contain;
+	-webkit-mask-repeat: no-repeat;
+}
+
+.explore-jawai-journal-card .wp-block-post-title,
+.explore-jawai-journal-card .explore-jawai-card-title {
+	padding: 0 var(--ej-card-pad);
+	margin: 0 0 0.5rem;
+	line-height: 1.35;
+}
+
+.explore-jawai-journal-card .wp-block-post-title a {
+	color: #1a2332 !important;
+	font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.explore-jawai-journal-card .wp-block-post-title a:hover {
+	color: var(--jawai-rust) !important;
+}
+
+.explore-jawai-journal-card .wp-block-post-excerpt,
+.explore-jawai-journal-card .explore-jawai-card-excerpt {
+	padding: 0 var(--ej-card-pad);
+	margin: 0;
+	flex: 1 1 auto;
+	color: #64748b;
+	font-size: 0.92rem;
+	line-height: 1.6;
+	display: flex;
+	flex-direction: column;
+}
+
+.explore-jawai-journal-card .wp-block-post-excerpt p {
+	margin: 0;
+	color: #64748b;
+}
+
+.explore-jawai-journal-card .wp-block-post-excerpt__more-link,
+.explore-jawai-journal-card .wp-block-post-excerpt a.wp-block-post-excerpt__more-link {
+	display: inline-block;
+	margin-top: auto;
+	padding-top: 1rem;
+	font-size: 0.7rem !important;
+	font-weight: 700 !important;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--jawai-gold) !important;
+	text-decoration: none !important;
+}
+
+.explore-jawai-journal-card .wp-block-post-excerpt__more-link:hover {
+	color: var(--jawai-gold-hover) !important;
+}
+
+@media (max-width: 1024px) {
+	ul.explore-jawai-post-cards--journal.wp-block-post-template,
+	.explore-jawai-post-cards--journal.wp-block-post-template {
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	}
+}
+
+@media (max-width: 600px) {
+	ul.explore-jawai-post-cards--journal.wp-block-post-template,
+	.explore-jawai-post-cards--journal.wp-block-post-template {
+		grid-template-columns: 1fr !important;
+	}
 }
 
 /* Two-column blog + sidebar (override core columns nowrap) */

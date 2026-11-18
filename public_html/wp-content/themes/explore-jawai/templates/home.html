@@ -6,51 +6,36 @@
 
 	<!-- wp:group {"className":"explore-jawai-shell","layout":{"type":"default"}} -->
 	<div class="wp-block-group explore-jawai-shell">
-		<!-- wp:group {"className":"explore-jawai-section","layout":{"type":"default"}} -->
-		<div class="wp-block-group explore-jawai-section">
-			<!-- wp:heading {"level":2} -->
-			<h2 class="wp-block-heading">Latest from Explore Jawai</h2>
+		<!-- wp:group {"className":"explore-jawai-section explore-jawai-journal-intro","layout":{"type":"default"}} -->
+		<div class="wp-block-group explore-jawai-section explore-jawai-journal-intro">
+			<!-- wp:heading {"level":2,"className":"explore-jawai-journal-title"} -->
+			<h2 class="wp-block-heading explore-jawai-journal-title">Explore Jawai Travel Journal</h2>
 			<!-- /wp:heading -->
-			<!-- wp:paragraph -->
-			<p>Field notes and photo journals from the leopard hills — browse stories or filter by category on the right.</p>
+			<!-- wp:paragraph {"className":"explore-jawai-journal-lead"} -->
+			<p class="explore-jawai-journal-lead">Safari guides, Rabari culture, and field notes from Rajasthan’s leopard hills — stories worth packing for.</p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->
 
-		<!-- wp:columns {"isStackedOnMobile":true,"className":"explore-jawai-blog-layout"} -->
-		<div class="wp-block-columns is-stacked-on-mobile explore-jawai-blog-layout">
-			<!-- wp:column -->
-			<div class="wp-block-column">
-				<!-- wp:query {"queryId":1,"query":{"perPage":6,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"default"}} -->
-				<div class="wp-block-query">
-					<!-- wp:post-template {"className":"explore-jawai-post-cards","layout":{"type":"grid","columnCount":2},"style":{"spacing":{"blockGap":"1.75rem"}}} -->
-					<!-- wp:group {"className":"explore-jawai-card","layout":{"type":"default"}} -->
-					<div class="wp-block-group explore-jawai-card">
-						<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","sizeSlug":"large"} /-->
-						<!-- wp:post-terms {"term":"category","style":{"typography":{"fontSize":"0.8125rem"}}} /-->
-						<!-- wp:post-title {"isLink":true,"fontSize":"large"} /-->
-						<!-- wp:post-date {"fontSize":"small","style":{"color":{"text":"#64748b"}}} /-->
-						<!-- wp:post-excerpt {"moreText":"Read full story →","excerptLength":22} /-->
-					</div>
-					<!-- /wp:group -->
-					<!-- /wp:post-template -->
-					<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"2.5rem"}}}} -->
-					<!-- wp:query-pagination-previous /-->
-					<!-- wp:query-pagination-numbers /-->
-					<!-- wp:query-pagination-next /-->
-					<!-- /wp:query-pagination -->
-				</div>
-				<!-- /wp:query -->
+		<!-- wp:query {"queryId":1,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"className":"explore-jawai-home-query","layout":{"type":"default"}} -->
+		<div class="wp-block-query explore-jawai-home-query">
+			<!-- wp:post-template {"className":"explore-jawai-post-cards explore-jawai-post-cards--journal","layout":{"type":"grid","columnCount":3},"style":{"spacing":{"blockGap":"2rem"}}} -->
+			<!-- wp:group {"className":"explore-jawai-card explore-jawai-journal-card","layout":{"type":"default"}} -->
+			<div class="wp-block-group explore-jawai-card explore-jawai-journal-card">
+				<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","sizeSlug":"large"} /-->
+				<!-- wp:post-date {"format":"j M Y","fontSize":"small","className":"explore-jawai-card-date"} /-->
+				<!-- wp:post-title {"isLink":true,"level":3,"fontSize":"large","className":"explore-jawai-card-title"} /-->
+				<!-- wp:post-excerpt {"moreText":"Read story →","excerptLength":20,"className":"explore-jawai-card-excerpt"} /-->
 			</div>
-			<!-- /wp:column -->
-
-			<!-- wp:column -->
-			<div class="wp-block-column">
-				<!-- wp:template-part {"slug":"sidebar","area":"uncategorized"} /-->
-			</div>
-			<!-- /wp:column -->
+			<!-- /wp:group -->
+			<!-- /wp:post-template -->
+			<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"3rem"}}},"className":"explore-jawai-journal-pagination"} -->
+			<!-- wp:query-pagination-previous /-->
+			<!-- wp:query-pagination-numbers /-->
+			<!-- wp:query-pagination-next /-->
+			<!-- /wp:query-pagination -->
 		</div>
-		<!-- /wp:columns -->
+		<!-- /wp:query -->
 	</div>
 	<!-- /wp:group -->
 </main>
