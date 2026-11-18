@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 WP_PATH="${WP_PATH:-/var/www/html/domain/explorejawai.com/public_html}"
-LOGO="${WP_PATH}/wp-content/themes/explore-jawai/assets/images/explore-jawai-logo-transparent.png"
+LOGO="${WP_PATH}/wp-content/themes/explore-jawai/assets/images/explore-jawai-logo-lockup.png"
+if [[ ! -f "$LOGO" ]]; then
+	LOGO="${WP_PATH}/wp-content/themes/explore-jawai/assets/images/explore-jawai-logo-transparent.png"
+fi
 if [[ ! -f "$LOGO" ]]; then
 	LOGO="${WP_PATH}/wp-content/themes/explore-jawai/assets/images/explore-jawai-logo-white.png"
 fi
