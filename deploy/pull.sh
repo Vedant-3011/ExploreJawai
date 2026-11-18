@@ -21,5 +21,6 @@ chown -R www-data:www-data "${PUBLIC}"
 
 bash "${REPO_DIR}/deploy/flush-fse-overrides.sh" "${PUBLIC}"
 bash "${REPO_DIR}/deploy/ensure-journal-posts.sh" "${PUBLIC}"
+bash "${REPO_DIR}/deploy/set-site-logo.sh"
 
 echo "Deploy complete: ${PUBLIC}"
