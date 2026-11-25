@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+# Editorial redesign lives on branch `editorial-local` until owner approves production.
+# Pushes to `editorial-local` do not trigger this workflow.
 
 concurrency:
   group: production-deploy

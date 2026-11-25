@@ -12,6 +12,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once get_stylesheet_directory() . '/inc/subscribe.php';
 require_once get_stylesheet_directory() . '/inc/contact-form.php';
 
+/**
+ * Editorial redesign — local/staging only until production approval.
+ * See deploy/DO-NOT-DEPLOY-EDITORIAL.txt
+ */
+define( 'EXPLORE_JAWAI_EDITORIAL', true );
+
+add_filter(
+	'body_class',
+	static function ( $classes ) {
+		if ( defined( 'EXPLORE_JAWAI_EDITORIAL' ) && EXPLORE_JAWAI_EDITORIAL ) {
+			$classes[] = 'ej-editorial';
+		}
+		return $classes;
+	}
+);
+
 add_action(
 	'wp_enqueue_scripts',
 	static function () {
@@ -25,8 +41,22 @@ add_action(
 			'explore-jawai',
 			get_stylesheet_uri(),
 			array( 'explore-jawai-parent' ),
-			'1.4.4'
+			'2.0.0-staging'
 		);
+		if ( defined( 'EXPLORE_JAWAI_EDITORIAL' ) && EXPLORE_JAWAI_EDITORIAL ) {
+			wp_enqueue_style(
+				'explore-jawai-fonts',
+				'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap',
+				array(),
+				null
+			);
+			wp_enqueue_style(
+				'explore-jawai-editorial',
+				get_stylesheet_directory_uri() . '/assets/css/editorial.css',
+				array( 'explore-jawai' ),
+				'2.0.0-staging'
+			);
+		}
 	}
 );
 

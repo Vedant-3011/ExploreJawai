@@ -1,0 +1,290 @@
+/**
+ * Explore Jawai — editorial design (prototype merge).
+ * Active when body has .ej-editorial. Logo: explorejawai.com lockup (white on green).
+ * STAGING / LOCAL ONLY — do not deploy without approval.
+ */
+body.ej-editorial {
+	font-family: "DM Sans", Inter, ui-sans-serif, system-ui, sans-serif;
+	--ej-ink: #233328;
+	--ej-green: #344638;
+	--ej-green-dark: #1f3025;
+	--ej-sand: #d7c49c;
+	--ej-clay: #b66d45;
+	--ej-paper: #f7f4ec;
+	--ej-white: #fffdf8;
+	--ej-muted: #697368;
+	--ej-line: rgba(52, 70, 56, 0.16);
+	background: var(--ej-paper) !important;
+	color: var(--ej-ink);
+}
+
+body.ej-editorial .explore-jawai-header {
+	background: var(--ej-green) !important;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+body.ej-editorial .explore-jawai-header-nav .wp-block-navigation-item a,
+body.ej-editorial .explore-jawai-header-signin a {
+	color: rgba(255, 255, 255, 0.92) !important;
+	border-bottom-color: transparent !important;
+	letter-spacing: 0.12em;
+	font-size: 0.72rem !important;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+body.ej-editorial .explore-jawai-header-nav .wp-block-navigation-item a:hover,
+body.ej-editorial .explore-jawai-header-nav .current-menu-item a,
+body.ej-editorial .explore-jawai-header-signin a:hover {
+	color: var(--ej-sand) !important;
+	border-bottom-color: var(--ej-clay) !important;
+}
+
+body.ej-editorial .explore-jawai-btn-ghost .wp-block-button__link {
+	background: transparent !important;
+	color: var(--ej-white) !important;
+	border-color: var(--ej-sand) !important;
+}
+
+body.ej-editorial .explore-jawai-btn-gold .wp-block-button__link,
+body.ej-editorial .explore-jawai-nav-cta .wp-block-button__link {
+	background: var(--ej-clay) !important;
+	color: var(--ej-white) !important;
+	border-color: var(--ej-clay) !important;
+}
+
+body.ej-editorial .explore-jawai-footer {
+	background: var(--ej-green-dark) !important;
+	color: #fff;
+}
+
+body.ej-editorial .explore-jawai-footer-banner {
+	display: none !important;
+}
+
+/* —— Editorial hero —— */
+.ej-editorial-hero {
+	position: relative;
+	min-height: min(650px, 85vh);
+	display: flex;
+	align-items: center;
+	color: #fff;
+	background: #2b382d;
+	overflow: hidden;
+	margin: 0 !important;
+	max-width: none !important;
+}
+
+.ej-editorial-hero::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+			90deg,
+			rgba(16, 29, 21, 0.82) 0%,
+			rgba(16, 29, 21, 0.47) 48%,
+			rgba(16, 29, 21, 0.08) 100%
+		),
+		url("../images/jawai-granite-hills-leopard-hero.webp") center 52% / cover;
+}
+
+.ej-editorial-hero .ej-editorial-hero__inner {
+	position: relative;
+	z-index: 1;
+	width: min(1160px, calc(100% - 40px));
+	margin: auto;
+	padding: 70px 0 76px;
+}
+
+.ej-editorial-eyebrow {
+	font-size: 0.72rem;
+	letter-spacing: 0.19em;
+	text-transform: uppercase;
+	color: var(--ej-clay);
+	font-weight: 800;
+}
+
+.ej-editorial-hero .ej-editorial-eyebrow {
+	color: #e0bd91;
+}
+
+.ej-editorial-hero h1 {
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: clamp(2.5rem, 6vw, 4.5rem);
+	line-height: 1.02;
+	margin: 18px 0 22px;
+	font-weight: 400;
+	letter-spacing: -0.03em;
+}
+
+.ej-editorial-hero p {
+	max-width: 570px;
+	color: rgba(255, 255, 255, 0.88);
+	font-size: 1.05rem;
+	line-height: 1.65;
+}
+
+.ej-editorial-hero__actions {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+	margin-top: 28px;
+}
+
+.ej-editorial-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 13px 20px;
+	border-radius: 3px;
+	background: var(--ej-green);
+	color: #fff;
+	font-weight: 700;
+	font-size: 0.86rem;
+	border: 1px solid var(--ej-green);
+	text-decoration: none;
+}
+
+.ej-editorial-btn--light {
+	background: var(--ej-white);
+	color: var(--ej-green);
+	border-color: var(--ej-white);
+}
+
+.ej-editorial-btn--outline {
+	background: transparent;
+	color: #fff;
+	border-color: rgba(255, 255, 255, 0.7);
+}
+
+/* —— Sections —— */
+.ej-editorial-section {
+	padding: clamp(3.5rem, 8vw, 6.25rem) 0;
+}
+
+.ej-editorial-section--sand {
+	background: #eee9dd;
+}
+
+.ej-editorial-section h2.ej-serif {
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: clamp(2rem, 4vw, 2.75rem);
+	line-height: 1.1;
+	margin: 12px 0 18px;
+	font-weight: 400;
+}
+
+.ej-editorial-intro {
+	color: var(--ej-muted);
+	font-size: 1.02rem;
+	max-width: 660px;
+	line-height: 1.65;
+}
+
+.ej-editorial-cards {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+}
+
+.ej-editorial-card {
+	background: var(--ej-white);
+	border: 1px solid var(--ej-line);
+	overflow: hidden;
+	box-shadow: 0 10px 30px rgba(27, 43, 32, 0.04);
+}
+
+.ej-editorial-card__visual {
+	height: 200px;
+	background-size: cover;
+	background-position: center;
+}
+
+.ej-editorial-card__visual--safari {
+	background-image: url("../images/jawai-leopard-rocky-hills.webp");
+}
+
+.ej-editorial-card__visual--water {
+	background-image: url("../images/jawai-bandh-birdlife.webp");
+}
+
+.ej-editorial-card__visual--culture {
+	background-image: url("../images/rabari-village-culture.webp");
+}
+
+.ej-editorial-card__body {
+	padding: 23px;
+}
+
+.ej-editorial-card__body h3 {
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 1.35rem;
+	margin: 8px 0;
+	line-height: 1.2;
+}
+
+.ej-editorial-card__body p {
+	color: var(--ej-muted);
+	font-size: 0.9rem;
+	margin: 0 0 14px;
+}
+
+.ej-editorial-text-link {
+	font-size: 0.82rem;
+	font-weight: 800;
+	color: var(--ej-clay);
+	text-decoration: none;
+}
+
+.ej-editorial-band {
+	background: var(--ej-green);
+	color: #fff;
+	padding: 4.5rem 0;
+}
+
+.ej-editorial-band .ej-editorial-eyebrow {
+	color: #e0bd91;
+}
+
+.ej-editorial-band p {
+	color: rgba(255, 255, 255, 0.76);
+	max-width: 640px;
+}
+
+.ej-editorial-band__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2rem;
+	flex-wrap: wrap;
+}
+
+body.ej-editorial .explore-jawai-journal-card {
+	background: var(--ej-white);
+	border: 1px solid var(--ej-line);
+}
+
+body.ej-editorial .explore-jawai-journal-title,
+body.ej-editorial .ej-serif {
+	color: var(--ej-ink);
+}
+
+body.ej-editorial .explore-jawai-home-sidebar {
+	border-color: var(--ej-line);
+	background: var(--ej-white) !important;
+}
+
+@media (max-width: 850px) {
+	.ej-editorial-cards {
+		grid-template-columns: 1fr;
+	}
+
+	.explore-jawai-header-inner {
+		grid-template-columns: 1fr auto !important;
+	}
+
+	body.ej-editorial .explore-jawai-header-actions .explore-jawai-header-signin {
+		display: none;
+	}
+}
