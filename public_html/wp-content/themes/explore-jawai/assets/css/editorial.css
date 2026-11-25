@@ -919,16 +919,25 @@ body.ej-editorial .explore-jawai-page {
 
 .ej-about-side-card h3 {
 	font-size: 1.15rem !important;
-	margin: 0 0 0.75rem !important;
+	margin: 0 0 0.5rem !important;
+}
+
+.ej-about-side-card p {
+	margin: 0 !important;
+	line-height: 1.35;
+}
+
+.ej-about-side-card p br {
+	display: none;
 }
 
 .ej-about-side-card p a {
 	display: block;
-	padding: 0.4rem 0;
+	padding: 0.15rem 0;
 	color: var(--ej-green);
 	font-weight: 700;
 	font-size: 0.92rem;
-	line-height: 1.45;
+	line-height: 1.35;
 	text-decoration: none;
 }
 
@@ -947,7 +956,7 @@ body.ej-editorial .explore-jawai-page {
 }
 
 .ej-about-side-spaced {
-	margin-top: 1.75rem !important;
+	margin-top: 1.35rem !important;
 }
 
 .ej-about-band {
