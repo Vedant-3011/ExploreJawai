@@ -12,8 +12,9 @@ wp() {
 	command wp --allow-root --path="$WP_PATH" "$@"
 }
 
-count="$(wp post list --post_type=post --post_status=publish --format=count 2>/dev/null || echo 0)"
-if [[ "${count:-0}" -gt 0 ]]; then
+count="$(wp post list --post_type=post --post_status=publish --format=count 2>/dev/null | tr -cd '0-9' || echo 0)"
+count="${count:-0}"
+if [[ "${count}" -gt 0 ]]; then
 	echo "Journal OK: ${count} published post(s)"
 	exit 0
 fi

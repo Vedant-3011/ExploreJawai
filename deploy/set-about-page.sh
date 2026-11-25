@@ -15,10 +15,18 @@ if [[ ! -f "$CONTENT_FILE" ]]; then
 	exit 1
 fi
 
-ABOUT_ID=$(wp post list --post_type=page --name=about --field=ID 2>/dev/null || true)
+ABOUT_ID=$(wp post list --post_type=page --name=about --field=ID 2>/dev/null | tr -cd '0-9' || true)
+if [[ -z "$ABOUT_ID" ]]; then
+	ABOUT_ID=$(wp post list --post_type=page --search='about' --field=ID 2>/dev/null | head -1 | tr -cd '0-9' || true)
+fi
 if [[ -z "$ABOUT_ID" ]]; then
 	ABOUT_ID=$(wp post create --post_type=page --post_status=publish \
 		--post_title='Explore Jawai' --post_name=about --porcelain)
+	ABOUT_ID=$(echo "$ABOUT_ID" | tr -cd '0-9')
+fi
+if [[ -z "$ABOUT_ID" || "$ABOUT_ID" == "0" ]]; then
+	echo "Could not resolve About page ID." >&2
+	exit 1
 fi
 
 wp post update "$ABOUT_ID" \
