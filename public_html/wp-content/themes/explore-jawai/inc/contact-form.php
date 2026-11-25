@@ -89,6 +89,12 @@ function explore_jawai_contact_form_html() {
 add_shortcode(
 	'explore_jawai_contact',
 	static function () {
+		if ( function_exists( 'explore_jawai_render_cf7_contact_form' ) ) {
+			$cf7 = explore_jawai_render_cf7_contact_form();
+			if ( '' !== $cf7 ) {
+				return $cf7;
+			}
+		}
 		return explore_jawai_contact_form_html();
 	}
 );
