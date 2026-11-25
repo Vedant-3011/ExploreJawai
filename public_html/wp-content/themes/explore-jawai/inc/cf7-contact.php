@@ -9,6 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+add_filter( 'wpcf7_autop', '__return_false' );
+
 /**
  * @return int
  */

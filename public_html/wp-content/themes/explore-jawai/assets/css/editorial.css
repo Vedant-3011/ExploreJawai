@@ -1582,7 +1582,7 @@ body.ej-editorial .explore-jawai-faq-item > p {
 .ej-form-grid {
 	display: grid !important;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 16px;
+	gap: 12px;
 	align-items: start;
 }
 
@@ -1664,13 +1664,50 @@ body.ej-editorial .explore-jawai-faq-item > p {
 	gap: 0;
 }
 
+.ej-contact-main-col .ej-editorial-eyebrow {
+	margin-bottom: 0.35rem !important;
+}
+
+.ej-contact-main-col h2.ej-serif,
+.ej-contact-main-col .wp-block-heading.ej-serif {
+	margin: 0 0 0.45rem !important;
+}
+
 .ej-contact-main-col .ej-home-section-intro {
-	margin-bottom: 1.5rem;
+	margin: 0 0 0.9rem !important;
+}
+
+.ej-contact-form-wrap,
+.ej-contact-form-wrap--cf7 {
+	margin-top: 0 !important;
 }
 
 /* Contact Form 7 — same layout; editable in wp-admin → Contact → Contact Forms */
 .ej-contact-form-wrap--cf7 .wpcf7 form {
 	margin: 0;
+}
+
+/* CF7 wraps fields in <p> — remove extra gaps and keep grid children */
+.ej-contact-form-wrap--cf7 form.ej-form-grid > p,
+.ej-contact-form-wrap--cf7 .wpcf7-form.ej-form-grid > p {
+	margin: 0 !important;
+	padding: 0 !important;
+	display: contents;
+}
+
+.ej-contact-form-wrap--cf7 form.ej-form-grid > br,
+.ej-contact-form-wrap--cf7 .wpcf7-form.ej-form-grid > br {
+	display: none;
+}
+
+.ej-contact-form-wrap--cf7 form.ej-form-grid > p:empty,
+.ej-contact-form-wrap--cf7 .wpcf7-form.ej-form-grid > p:empty {
+	display: none !important;
+}
+
+.ej-contact-form-wrap--cf7 form.ej-form-grid .ej-form-field,
+.ej-contact-form-wrap--cf7 .wpcf7-form.ej-form-grid .ej-form-field {
+	min-width: 0;
 }
 
 .ej-contact-form-wrap--cf7 .wpcf7-not-valid-tip {
