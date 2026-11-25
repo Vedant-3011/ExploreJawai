@@ -21,20 +21,16 @@ if [[ -z "$ABOUT_ID" ]]; then
 fi
 if [[ -z "$ABOUT_ID" ]]; then
 	ABOUT_ID=$(wp post create --post_type=page --post_status=publish \
-		--post_title='Explore Jawai' --post_name=about --porcelain)
-	ABOUT_ID=$(echo "$ABOUT_ID" | tr -cd '0-9')
+		--post_title='Explore Jawai' --post_name=about --porcelain | tr -cd '0-9')
 fi
 if [[ -z "$ABOUT_ID" || "$ABOUT_ID" == "0" ]]; then
 	echo "Could not resolve About page ID." >&2
 	exit 1
 fi
 
-wp post update "$ABOUT_ID" \
-	--post_title='Explore Jawai' \
-	--post_name='about' \
-	--post_status='publish' \
-	--post_excerpt='Discover Jawai granite landscape, wildlife, Jawai Bandh, birdlife and Rabari pastoral culture in Pali, Rajasthan.' \
-	--post_content="$(cat "$CONTENT_FILE")"
+export ABOUT_PAGE_ID="$ABOUT_ID"
+export CONTENT_FILE
+wp eval-file "${SCRIPT_DIR}/update-about-content.php"
 
 wp cache flush 2>/dev/null || true
 echo "About page updated (ID $ABOUT_ID)."
