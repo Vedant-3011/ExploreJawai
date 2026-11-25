@@ -34,12 +34,116 @@ Production **explorejawai.com** is unchanged until you say **“approved for pro
 
 ---
 
-## Option B — XAMPP
+## Option B — XAMPP (Windows)
 
-1. Install XAMPP; start Apache + MySQL.
-2. Put or symlink `public_html` under `C:\xampp\htdocs\explore-jawai`.
-3. Create MySQL database `explore_jawai_local`.
-4. Same `wp-config.php` steps as above; use `http://localhost/explore-jawai`.
+**Important:** If `C:\xampp\htdocs\explore-jawai` is a **copy** of the repo (not a junction), Apache uses **that copy’s** `wp-config.php`, not the one you edit under `D:\Office\Project\...` unless you sync or link folders.
+
+To use one folder only, run **as Administrator**: `scripts\xampp-link-public-html.ps1` → then use **`http://localhost/explore-jawai/`**.
+
+Current layout (repo inside htdocs): **`http://localhost/explore-jawai/public_html`**
+
+### 1. Start stack
+
+1. Open **XAMPP Control Panel**.
+2. **Start** **Apache** and **MySQL** (both green).
+
+### 2. Point Apache at this project (junction — recommended)
+
+Run **Command Prompt as Administrator** once:
+
+**Either** link **`public_html` only** (clean URL):
+
+```bat
+mklink /J C:\xampp\htdocs\explore-jawai "D:\Office\Project\Projects\Explore Jawai\public_html"
+```
+
+→ **`http://localhost/explore-jawai`**
+
+**Or** link the **whole repo** (what you have if `htdocs\explore-jawai` contains `public_html` as a subfolder):
+
+```bat
+mklink /J C:\xampp\htdocs\explore-jawai "D:\Office\Project\Projects\Explore Jawai"
+```
+
+→ **`http://localhost/explore-jawai/public_html`**
+
+*(If you prefer not to use a junction, copy the whole `public_html` folder into `C:\xampp\htdocs\explore-jawai` instead — you must re-copy after theme updates.)*
+
+### 3. Database (phpMyAdmin)
+
+1. Open **`http://localhost/phpmyadmin`**
+2. **Databases** → create name: **`explore_jawai_local`** → Collation: **utf8mb4_unicode_ci**
+
+Default XAMPP MySQL login: user **`root`**, password **empty** (unless you changed it).
+
+### 4. Branch + `wp-config.php`
+
+```powershell
+cd "D:\Office\Project\Projects\Explore Jawai"
+git checkout editorial-local
+
+cd public_html
+copy wp-config.example.php wp-config.php
+```
+
+Edit **`wp-config.php`**:
+
+| Setting | XAMPP typical value |
+|---------|---------------------|
+| `DB_NAME` | `explore_jawai_local` |
+| `DB_USER` | `root` |
+| `DB_PASSWORD` | `''` (empty string) |
+| `DB_HOST` | `localhost` |
+
+Add **before** `require_once ABSPATH . 'wp-settings.php';`:
+
+```php
+// If htdocs points at public_html only:
+define( 'WP_HOME', 'http://localhost/explore-jawai' );
+define( 'WP_SITEURL', 'http://localhost/explore-jawai' );
+// If htdocs points at the whole repo (nested public_html):
+// define( 'WP_HOME', 'http://localhost/explore-jawai/public_html' );
+// define( 'WP_SITEURL', 'http://localhost/explore-jawai/public_html' );
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_DISPLAY', true );
+```
+
+Generate real salts: https://api.wordpress.org/secret-key/1.1/salt/ — paste into the `AUTH_KEY` … `NONCE_SALT` block.
+
+### 5. WordPress install
+
+1. Open **`http://localhost/explore-jawai`**
+2. Run the 5-minute install (title, admin user, password).
+3. **Appearance → Themes → Explore Jawai**
+4. **Settings → Permalinks → Post name → Save**
+
+Editorial design is on automatically (`EXPLORE_JAWAI_EDITORIAL` is `true` in the theme).
+
+### 6. XAMPP troubleshooting
+
+| Issue | Fix |
+|-------|-----|
+| Apache won’t start (port 80) | XAMPP **Config → Apache (httpd.conf)** or stop Skype/IIS; or use port **8080** and use `http://localhost:8080/explore-jawai` in `WP_HOME` / `WP_SITEURL` |
+| Blank page / white screen | Check `wp-content/debug.log` if `WP_DEBUG` is on |
+| Home looks like old design | **Appearance → Editor** → delete customized **Home** template, or reset templates |
+| MySQL won’t start | Port **3306** in use — stop other MySQL/MariaDB services |
+
+### 7. WP-CLI with XAMPP (optional)
+
+If `wp` is installed globally:
+
+```powershell
+$env:WP_PATH = "D:\Office\Project\Projects\Explore Jawai\public_html"
+# Git Bash:
+bash deploy/set-plan-your-trip-page.sh
+```
+
+Or from `public_html`:
+
+```powershell
+wp option update home 'http://localhost/explore-jawai'
+wp option update siteurl 'http://localhost/explore-jawai'
+```
 
 ---
 

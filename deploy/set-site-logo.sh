@@ -15,6 +15,11 @@ if [[ ! -f "$LOGO" ]]; then
 	echo "Logo file missing; skip site logo."
 	exit 0
 fi
+EXISTING="$(wp --allow-root --path="$WP_PATH" option get site_logo 2>/dev/null || echo "")"
+if [[ -n "$EXISTING" && "$EXISTING" != "0" ]]; then
+	echo "Site logo already set (attachment ${EXISTING}); keeping DB unchanged."
+	exit 0
+fi
 ATT=$(wp --allow-root --path="$WP_PATH" media import "$LOGO" --title="Explore Jawai logo" --porcelain 2>/dev/null | tail -1)
 # Always refresh from theme file so header/footer updates match Site Icon/logo in admin.
 if [[ -n "$ATT" ]]; then
