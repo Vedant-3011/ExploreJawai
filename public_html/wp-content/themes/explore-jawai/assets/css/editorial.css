@@ -1055,7 +1055,170 @@ body.ej-editorial .explore-jawai-faq-item > p {
 	background: var(--ej-white);
 }
 
+/* —— Contact (prototype contact.html) —— */
+.ej-contact-body {
+	padding: clamp(3.5rem, 8vw, 6.25rem) 0;
+	background: var(--ej-paper);
+}
+
+.ej-contact-content-grid {
+	gap: clamp(2rem, 5vw, 3.75rem) !important;
+	align-items: flex-start;
+}
+
+.ej-contact-main-col {
+	flex-basis: 58% !important;
+}
+
+.ej-contact-aside-col {
+	flex-basis: 38% !important;
+	max-width: 400px;
+}
+
+.ej-form-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+}
+
+.ej-form-field {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.ej-form-field--full {
+	grid-column: 1 / -1;
+}
+
+.ej-form-field label {
+	font-size: 0.82rem;
+	font-weight: 700;
+	color: var(--ej-ink);
+}
+
+.ej-form-field input,
+.ej-form-field select,
+.ej-form-field textarea {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 12px 14px;
+	border: 1px solid var(--ej-line);
+	border-radius: 3px;
+	background: var(--ej-white);
+	font-family: inherit;
+	font-size: 0.95rem;
+	color: var(--ej-ink);
+}
+
+.ej-form-field textarea {
+	min-height: 140px;
+	resize: vertical;
+}
+
+.ej-form-field input:focus,
+.ej-form-field select:focus,
+.ej-form-field textarea:focus {
+	outline: none;
+	border-color: var(--ej-clay);
+}
+
+.ej-contact-hp {
+	position: absolute;
+	left: -9999px;
+	height: 0;
+	overflow: hidden;
+	margin: 0;
+}
+
+.ej-contact-submit {
+	margin-top: 0.25rem;
+	cursor: pointer;
+	border: none;
+}
+
+.ej-contact-form-note {
+	font-size: 0.78rem;
+	color: var(--ej-muted);
+	margin: 0.75rem 0 0;
+}
+
+.ej-contact-notice {
+	padding: 0.85rem 1rem;
+	border-radius: 4px;
+	margin-bottom: 1.25rem;
+	font-size: 0.92rem;
+}
+
+.ej-contact-notice--success {
+	background: rgba(52, 70, 56, 0.08);
+	border: 1px solid var(--ej-line);
+}
+
+.ej-contact-notice--error {
+	background: rgba(182, 109, 69, 0.1);
+	border: 1px solid var(--ej-clay);
+}
+
+.ej-contact-side-card {
+	background: var(--ej-white);
+	padding: 27px;
+	border: 1px solid var(--ej-line);
+	border-radius: 6px;
+	position: sticky;
+	top: 100px;
+}
+
+.ej-contact-side-card h3 {
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 1.6rem;
+	margin: 0 0 12px;
+	font-weight: 400;
+}
+
+.ej-contact-empty-note {
+	color: var(--ej-muted);
+	font-size: 0.92rem;
+	line-height: 1.6;
+	margin: 0 0 1rem;
+}
+
+.ej-contact-side-link {
+	display: block;
+	padding: 11px 0;
+	border-bottom: 1px solid var(--ej-line);
+	font-size: 0.88rem;
+	font-weight: 700;
+	color: var(--ej-clay);
+	text-decoration: none;
+}
+
+.ej-contact-side-link:hover {
+	color: var(--ej-green);
+}
+
+.ej-contact-callout {
+	margin-top: 1.25rem;
+	padding-top: 1.25rem;
+	border-top: 1px solid var(--ej-line);
+	font-size: 0.85rem;
+	color: var(--ej-muted);
+	line-height: 1.55;
+}
+
+.ej-contact-callout p {
+	margin: 0;
+}
+
 @media (max-width: 850px) {
+	.ej-form-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.ej-contact-side-card {
+		position: static;
+	}
+
 	.ej-home-split,
 	.ej-home-blog-grid {
 		grid-template-columns: 1fr;

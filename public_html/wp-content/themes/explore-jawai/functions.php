@@ -10,7 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once get_stylesheet_directory() . '/inc/subscribe.php';
-require_once get_stylesheet_directory() . '/inc/contact-form.php';
 
 /** Editorial design (matches local XAMPP preview). */
 define( 'EXPLORE_JAWAI_EDITORIAL', true );
@@ -58,7 +57,7 @@ add_shortcode( 'explore_jawai_home_steps', static fn () => explore_jawai_render_
  */
 function explore_jawai_fix_autop_block_html( $html ) {
 	$html = (string) $html;
-	if ( '' === $html || ( strpos( $html, 'ej-home-' ) === false && strpos( $html, 'ej-blog-' ) === false && strpos( $html, 'ej-editorial-card' ) === false ) ) {
+	if ( '' === $html || ( strpos( $html, 'ej-home-' ) === false && strpos( $html, 'ej-blog-' ) === false && strpos( $html, 'ej-contact-' ) === false && strpos( $html, 'ej-editorial-card' ) === false ) ) {
 		return $html;
 	}
 	$html = preg_replace( '#</span></p>\s*<div>#', '</span><div>', $html );
@@ -79,6 +78,8 @@ add_filter(
 			'explore_jawai_home_journal',
 			'explore_jawai_editorial_cards',
 			'explore_jawai_editorial_blog',
+			'explore_jawai_contact',
+			'explore_jawai_contact_aside',
 		);
 		if ( in_array( $tag, $tags, true ) ) {
 			return explore_jawai_fix_autop_block_html( $output );
@@ -102,6 +103,9 @@ add_filter(
 );
 add_shortcode( 'explore_jawai_home_journal', static fn () => explore_jawai_render_partial( 'editorial-home-journal.php' ) );
 add_shortcode( 'explore_jawai_editorial_blog', static fn () => explore_jawai_render_partial( 'editorial-blog-archive.php' ) );
+add_shortcode( 'explore_jawai_contact_aside', static fn () => explore_jawai_render_partial( 'editorial-contact-aside.php' ) );
+
+require_once get_stylesheet_directory() . '/inc/contact-form.php';
 
 add_filter(
 	'body_class',
@@ -114,6 +118,9 @@ add_filter(
 		}
 		if ( is_singular( 'post' ) ) {
 			$classes[] = 'ej-single-post-active';
+		}
+		if ( is_page( 'contact' ) ) {
+			$classes[] = 'ej-contact-page-active';
 		}
 		return $classes;
 	}
@@ -134,7 +141,7 @@ add_action(
 			'explore-jawai',
 			get_stylesheet_uri(),
 			array( 'explore-jawai-parent' ),
-			'2.2.0'
+			'2.2.1'
 		);
 		if ( defined( 'EXPLORE_JAWAI_EDITORIAL' ) && EXPLORE_JAWAI_EDITORIAL ) {
 			wp_enqueue_style(
@@ -147,7 +154,7 @@ add_action(
 				'explore-jawai-editorial',
 				get_stylesheet_directory_uri() . '/assets/css/editorial.css',
 				array( 'explore-jawai' ),
-				'2.2.0'
+				'2.2.1'
 			);
 		}
 	}
