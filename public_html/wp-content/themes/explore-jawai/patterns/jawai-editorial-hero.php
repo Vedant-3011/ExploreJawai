@@ -26,9 +26,6 @@
 			<!-- wp:paragraph -->
 			<p><a class="ej-editorial-btn ej-editorial-btn--light" href="/about/">Explore Jawai ↗</a></p>
 			<!-- /wp:paragraph -->
-			<!-- wp:paragraph -->
-			<p><a class="ej-editorial-btn ej-editorial-btn--outline" href="/plan-your-trip/">Plan your journey</a></p>
-			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->
 	</div>
