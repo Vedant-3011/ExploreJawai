@@ -27,5 +27,6 @@ bash "${REPO_DIR}/deploy/ensure-journal-posts.sh" "${PUBLIC}"
 bash "${REPO_DIR}/deploy/unpublish-plan-your-trip-page.sh" "${PUBLIC}"
 bash "${REPO_DIR}/deploy/set-site-logo.sh"
 bash "${REPO_DIR}/deploy/verify-homepage.sh" "https://explorejawai.com/"
+bash "${REPO_DIR}/deploy/verify-blog-page.sh" "https://explorejawai.com/blog/"
 
 echo "Deploy complete: ${PUBLIC}"
