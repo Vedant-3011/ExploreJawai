@@ -770,18 +770,22 @@ body.ej-editorial .explore-jawai-journal-card {
 }
 
 body.ej-editorial .explore-jawai-journal-title,
-body.ej-editorial .ej-serif {
+body.ej-editorial .ej-serif:not(.ej-editorial-hero-title):not(.ej-blog-page-hero__title):not(.ej-blog-archive-title) {
 	color: var(--ej-ink);
 }
 
-/* Dark image heroes — serif titles stay white (override .ej-serif ink) */
+/* Dark image heroes — always white (beats global styles + .ej-serif) */
+body.ej-editorial .ej-editorial-hero .wp-block-heading,
+body.ej-editorial .ej-editorial-hero h1,
+body.ej-editorial .ej-editorial-hero .ej-editorial-hero-title,
 body.ej-editorial .ej-editorial-hero h1.ej-serif,
-body.ej-editorial .ej-editorial-hero .ej-editorial-hero-title.ej-serif,
-body.ej-editorial .ej-blog-page-hero h1.ej-serif,
+body.ej-editorial .ej-blog-page-hero h1,
 body.ej-editorial .ej-blog-page-hero .ej-blog-page-hero__title,
-body.ej-editorial .ej-blog-page-hero .ej-blog-page-hero__title.ej-serif,
-body.ej-editorial .ej-blog-archive-title {
-	color: #fff !important;
+body.ej-editorial .ej-blog-page-hero h1.ej-serif,
+body.ej-editorial .ej-blog-archive-title,
+body.ej-editorial .ej-blog-page-hero--compact .wp-block-query-title {
+	color: #ffffff !important;
+	-webkit-text-fill-color: #ffffff;
 }
 
 body.ej-editorial .explore-jawai-home-sidebar {
