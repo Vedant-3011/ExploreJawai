@@ -31,11 +31,13 @@ add_filter(
 add_action(
 	'wp_enqueue_scripts',
 	static function () {
+		$parent = wp_get_theme( get_template() );
+		$parent_ver = $parent->exists() ? $parent->get( 'Version' ) : '1.0';
 		wp_enqueue_style(
 			'explore-jawai-parent',
 			get_template_directory_uri() . '/style.css',
 			array(),
-			wp_get_theme( 'twentytwentyfour' )->get( 'Version' )
+			$parent_ver
 		);
 		wp_enqueue_style(
 			'explore-jawai',
