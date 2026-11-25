@@ -112,6 +112,9 @@ add_filter(
 		if ( is_home() && ! is_front_page() ) {
 			$classes[] = 'ej-blog-index';
 		}
+		if ( is_singular( 'post' ) ) {
+			$classes[] = 'ej-single-post-active';
+		}
 		return $classes;
 	}
 );
@@ -131,7 +134,7 @@ add_action(
 			'explore-jawai',
 			get_stylesheet_uri(),
 			array( 'explore-jawai-parent' ),
-			'2.1.7'
+			'2.1.8'
 		);
 		if ( defined( 'EXPLORE_JAWAI_EDITORIAL' ) && EXPLORE_JAWAI_EDITORIAL ) {
 			wp_enqueue_style(
@@ -144,7 +147,7 @@ add_action(
 				'explore-jawai-editorial',
 				get_stylesheet_directory_uri() . '/assets/css/editorial.css',
 				array( 'explore-jawai' ),
-				'2.1.7'
+				'2.1.8'
 			);
 		}
 		if ( is_home() && ! is_front_page() ) {
@@ -152,7 +155,7 @@ add_action(
 				'explore-jawai-blog-filters',
 				get_stylesheet_directory_uri() . '/assets/js/editorial-blog-filters.js',
 				array(),
-				'2.1.7',
+				'2.1.8',
 				true
 			);
 		}

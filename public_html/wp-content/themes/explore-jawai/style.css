@@ -4,7 +4,7 @@ Theme URI: https://explorejawai.com
 Author: Explore Jawai
 Description: Travel and wildlife blog theme for Jawai, Rajasthan — child of Twenty Twenty-Four.
 Template: twentytwentyfour
-Version: 2.1.7
+Version: 2.1.8
 Requires at least: 6.4
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -1132,9 +1132,7 @@ ul.explore-jawai-post-cards.wp-block-post-template,
 }
 
 .explore-jawai-faq-question,
-.explore-jawai-faq-item > .wp-block-heading,
-.explore-jawai-article-prose h3.wp-block-heading:has(+ p),
-.explore-jawai-single .wp-block-post-content h3.wp-block-heading:has(+ p) {
+.explore-jawai-faq-item > .wp-block-heading {
 	margin: 0 !important;
 	padding: 1rem 1.15rem 0.85rem;
 	font-size: 1.05rem !important;
@@ -1146,9 +1144,7 @@ ul.explore-jawai-post-cards.wp-block-post-template,
 }
 
 .explore-jawai-faq-question::before,
-.explore-jawai-faq-item > .wp-block-heading::before,
-.explore-jawai-article-prose h3.wp-block-heading:has(+ p)::before,
-.explore-jawai-single .wp-block-post-content h3.wp-block-heading:has(+ p)::before {
+.explore-jawai-faq-item > .wp-block-heading::before {
 	content: "Question";
 	display: block;
 	margin-bottom: 0.35rem;
@@ -1160,9 +1156,7 @@ ul.explore-jawai-post-cards.wp-block-post-template,
 }
 
 .explore-jawai-faq-answer,
-.explore-jawai-faq-item > p,
-.explore-jawai-article-prose h3.wp-block-heading + p,
-.explore-jawai-single .wp-block-post-content h3.wp-block-heading + p {
+.explore-jawai-faq-item > p {
 	margin: 0 !important;
 	padding: 1rem 1.15rem 1.15rem;
 	background: #fff;
@@ -1170,9 +1164,7 @@ ul.explore-jawai-post-cards.wp-block-post-template,
 }
 
 .explore-jawai-faq-answer::before,
-.explore-jawai-faq-item > p::before,
-.explore-jawai-article-prose h3.wp-block-heading + p::before,
-.explore-jawai-single .wp-block-post-content h3.wp-block-heading + p::before {
+.explore-jawai-faq-item > p::before {
 	content: "Answer";
 	display: block;
 	margin-bottom: 0.4rem;
@@ -1181,23 +1173,6 @@ ul.explore-jawai-post-cards.wp-block-post-template,
 	letter-spacing: 0.14em;
 	text-transform: uppercase;
 	color: #64748b;
-}
-
-.explore-jawai-article-prose h3.wp-block-heading:has(+ p),
-.explore-jawai-single .wp-block-post-content h3.wp-block-heading:has(+ p) {
-	margin-block-start: 1.5rem !important;
-	border: 1px solid rgba(30, 41, 59, 0.1);
-	border-radius: var(--ej-radius) var(--ej-radius) 0 0;
-	box-shadow: 0 1px 6px rgba(30, 41, 59, 0.04);
-}
-
-.explore-jawai-article-prose h3.wp-block-heading:has(+ p) + p,
-.explore-jawai-single .wp-block-post-content h3.wp-block-heading:has(+ p) + p {
-	margin-block-end: 0.25rem !important;
-	border: 1px solid rgba(30, 41, 59, 0.1);
-	border-top: none;
-	border-radius: 0 0 var(--ej-radius) var(--ej-radius);
-	margin-block-start: 0 !important;
 }
 
 /* —— Static pages (About, Contact) —— */
