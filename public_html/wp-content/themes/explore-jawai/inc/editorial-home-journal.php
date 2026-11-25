@@ -51,7 +51,7 @@ $posts = get_posts(
 		<?php endif; ?>
 		<?php
 		$posts_page_id = (int) get_option( 'page_for_posts' );
-		$journal_url   = $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/' );
+		$journal_url   = $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/blog/' );
 		?>
 		<p class="ej-home-text-link-wrap">
 			<a class="ej-editorial-text-link" href="<?php echo esc_url( $journal_url ); ?>"><?php esc_html_e( 'Visit the travel journal →', 'explore-jawai' ); ?></a>

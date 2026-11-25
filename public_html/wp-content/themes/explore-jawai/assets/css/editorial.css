@@ -398,6 +398,109 @@ body.ej-editorial .explore-jawai-footer-banner {
 	text-decoration: none;
 }
 
+.ej-home-blog-thumb {
+	height: 190px;
+}
+
+.ej-blog-archive-grid .ej-home-blog-card[hidden] {
+	display: none;
+}
+
+/* —— Blog index (prototype blog.html) —— */
+.ej-blog-page-hero {
+	position: relative;
+	color: #fff;
+	padding: clamp(4.5rem, 10vw, 6.5rem) 0 clamp(3.5rem, 7vw, 5.25rem);
+	margin: 0 !important;
+	max-width: none !important;
+	background: #2b382d;
+	overflow: hidden;
+}
+
+.ej-blog-page-hero::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+			110deg,
+			rgba(29, 45, 33, 0.92) 0%,
+			rgba(29, 45, 33, 0.58) 100%
+		),
+		url("../images/jawai-granite-hills-leopard-hero.webp") center / cover;
+}
+
+.ej-blog-page-hero__inner {
+	position: relative;
+	z-index: 1;
+}
+
+.ej-blog-page-hero__eyebrow {
+	color: #e0bd91 !important;
+}
+
+.ej-blog-breadcrumbs {
+	font-size: 0.75rem;
+	color: rgba(255, 255, 255, 0.7);
+	margin: 0 0 1.5rem;
+}
+
+.ej-blog-breadcrumbs a {
+	color: rgba(255, 255, 255, 0.7);
+	text-decoration: none;
+}
+
+.ej-blog-breadcrumbs a:hover {
+	color: var(--ej-sand);
+}
+
+.ej-blog-page-hero__title {
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: clamp(2.5rem, 5vw, 5rem);
+	line-height: 1.02;
+	margin: 12px 0 18px;
+	max-width: 850px;
+	font-weight: 400;
+	color: #fff;
+}
+
+.ej-blog-page-hero__lead {
+	max-width: 640px;
+	color: rgba(255, 255, 255, 0.88);
+	font-size: 1.05rem;
+	line-height: 1.65;
+	margin: 0;
+}
+
+.ej-blog-archive-wrap {
+	padding: clamp(3.5rem, 8vw, 6.25rem) 0;
+}
+
+.ej-blog-filters {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+	margin-bottom: 28px;
+}
+
+.ej-blog-filter {
+	border: 1px solid var(--ej-line);
+	background: var(--ej-white);
+	color: var(--ej-ink);
+	padding: 10px 16px;
+	border-radius: 3px;
+	font-size: 0.82rem;
+	font-weight: 700;
+	cursor: pointer;
+	font-family: inherit;
+}
+
+.ej-blog-filter:hover,
+.ej-blog-filter.is-active {
+	background: var(--ej-green);
+	border-color: var(--ej-green);
+	color: #fff;
+}
+
 /* —— Sections —— */
 .ej-editorial-section {
 	padding: clamp(3.5rem, 8vw, 6.25rem) 0;

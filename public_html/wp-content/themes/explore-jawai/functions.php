@@ -58,7 +58,7 @@ add_shortcode( 'explore_jawai_home_steps', static fn () => explore_jawai_render_
  */
 function explore_jawai_fix_autop_block_html( $html ) {
 	$html = (string) $html;
-	if ( '' === $html || ( strpos( $html, 'ej-home-' ) === false && strpos( $html, 'ej-editorial-card' ) === false ) ) {
+	if ( '' === $html || ( strpos( $html, 'ej-home-' ) === false && strpos( $html, 'ej-blog-' ) === false && strpos( $html, 'ej-editorial-card' ) === false ) ) {
 		return $html;
 	}
 	$html = preg_replace( '#</span></p>\s*<div>#', '</span><div>', $html );
@@ -78,6 +78,7 @@ add_filter(
 			'explore_jawai_home_steps',
 			'explore_jawai_home_journal',
 			'explore_jawai_editorial_cards',
+			'explore_jawai_editorial_blog',
 		);
 		if ( in_array( $tag, $tags, true ) ) {
 			return explore_jawai_fix_autop_block_html( $output );
@@ -100,12 +101,16 @@ add_filter(
 	2
 );
 add_shortcode( 'explore_jawai_home_journal', static fn () => explore_jawai_render_partial( 'editorial-home-journal.php' ) );
+add_shortcode( 'explore_jawai_editorial_blog', static fn () => explore_jawai_render_partial( 'editorial-blog-archive.php' ) );
 
 add_filter(
 	'body_class',
 	static function ( $classes ) {
 		if ( defined( 'EXPLORE_JAWAI_EDITORIAL' ) && EXPLORE_JAWAI_EDITORIAL ) {
 			$classes[] = 'ej-editorial';
+		}
+		if ( is_home() && ! is_front_page() ) {
+			$classes[] = 'ej-blog-index';
 		}
 		return $classes;
 	}
@@ -126,7 +131,7 @@ add_action(
 			'explore-jawai',
 			get_stylesheet_uri(),
 			array( 'explore-jawai-parent' ),
-			'2.1.6'
+			'2.1.7'
 		);
 		if ( defined( 'EXPLORE_JAWAI_EDITORIAL' ) && EXPLORE_JAWAI_EDITORIAL ) {
 			wp_enqueue_style(
@@ -139,7 +144,16 @@ add_action(
 				'explore-jawai-editorial',
 				get_stylesheet_directory_uri() . '/assets/css/editorial.css',
 				array( 'explore-jawai' ),
-				'2.1.6'
+				'2.1.7'
+			);
+		}
+		if ( is_home() && ! is_front_page() ) {
+			wp_enqueue_script(
+				'explore-jawai-blog-filters',
+				get_stylesheet_directory_uri() . '/assets/js/editorial-blog-filters.js',
+				array(),
+				'2.1.7',
+				true
 			);
 		}
 	}
