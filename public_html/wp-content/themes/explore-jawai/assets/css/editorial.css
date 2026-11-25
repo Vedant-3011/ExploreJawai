@@ -939,15 +939,14 @@ a.ej-blog-filter--link {
 	text-decoration: none;
 }
 
-/* Featured image frame — space below date + visible edging */
+/* Featured image — space below date only (no border/radius/shadow) */
 body.ej-editorial .ej-single-featured-frame {
 	margin: 1.35rem 0 2.5rem !important;
 	padding: 0 !important;
-	border: 1px solid rgba(52, 70, 56, 0.22);
-	border-radius: 6px;
-	overflow: hidden;
-	background: var(--ej-white);
-	box-shadow: 0 14px 42px rgba(27, 43, 32, 0.1);
+	border: none !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	background: transparent !important;
 	max-width: 100%;
 }
 
@@ -958,7 +957,7 @@ body.ej-editorial .ej-single-featured-frame .ej-single-featured {
 	border: none !important;
 	border-radius: 0 !important;
 	box-shadow: none !important;
-	overflow: hidden;
+	overflow: visible;
 }
 
 body.ej-editorial .ej-single-featured-frame .wp-block-post-featured-image img,
@@ -967,17 +966,15 @@ body.ej-editorial .ej-single-featured-frame .ej-single-featured img {
 	height: auto;
 	object-fit: cover;
 	display: block;
-	vertical-align: middle;
+	border-radius: 0 !important;
 }
 
-/* Fallback if theme file lacks wrapper (older DB template) */
 body.ej-editorial .ej-single-sheet__inner > .wp-block-post-featured-image,
 body.ej-editorial .ej-single-sheet__inner > figure.ej-single-featured {
 	margin: 1.35rem 0 2.5rem !important;
-	border-radius: 6px;
-	overflow: hidden;
-	border: 1px solid rgba(52, 70, 56, 0.22);
-	box-shadow: 0 14px 42px rgba(27, 43, 32, 0.1);
+	border: none !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
 }
 
 body.ej-editorial .ej-single-prose,
