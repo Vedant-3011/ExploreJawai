@@ -1,48 +1,43 @@
 <!-- wp:template-part {"slug":"header","area":"header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main","className":"explore-jawai-main","layout":{"type":"default"}} -->
-<main class="wp-block-group explore-jawai-main">
-	<!-- wp:group {"className":"explore-jawai-shell","layout":{"type":"default"}} -->
-	<div class="wp-block-group explore-jawai-shell">
-		<!-- wp:group {"className":"explore-jawai-section","layout":{"type":"default"}} -->
-		<div class="wp-block-group explore-jawai-section">
-			<!-- wp:query-title {"type":"archive"} /-->
+<!-- wp:group {"tagName":"main","className":"explore-jawai-main ej-blog-index ej-blog-archive","layout":{"type":"default"}} -->
+<main class="wp-block-group explore-jawai-main ej-blog-index ej-blog-archive">
+	<!-- wp:group {"align":"full","className":"ej-blog-page-hero ej-blog-page-hero--compact","layout":{"type":"default"}} -->
+	<div class="wp-block-group alignfull ej-blog-page-hero ej-blog-page-hero--compact">
+		<!-- wp:group {"className":"explore-jawai-shell ej-blog-page-hero__inner","layout":{"type":"default"}} -->
+		<div class="wp-block-group explore-jawai-shell ej-blog-page-hero__inner">
+			<!-- wp:paragraph {"className":"ej-blog-breadcrumbs"} -->
+			<p class="ej-blog-breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Blog</a></p>
+			<!-- /wp:paragraph -->
+			<!-- wp:query-title {"type":"archive","className":"ej-serif ej-blog-archive-title"} /-->
 		</div>
 		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
 
-		<!-- wp:columns {"isStackedOnMobile":true,"className":"explore-jawai-blog-layout"} -->
-		<div class="wp-block-columns is-stacked-on-mobile explore-jawai-blog-layout">
-			<!-- wp:column -->
-			<div class="wp-block-column">
-				<!-- wp:query {"queryId":2,"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":true},"layout":{"type":"default"}} -->
-				<div class="wp-block-query">
-					<!-- wp:post-template {"className":"explore-jawai-post-cards","layout":{"type":"grid","columnCount":2},"style":{"spacing":{"blockGap":"1.75rem"}}} -->
-					<!-- wp:group {"className":"explore-jawai-card","layout":{"type":"default"}} -->
-					<div class="wp-block-group explore-jawai-card">
-						<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3"} /-->
-						<!-- wp:post-title {"isLink":true,"fontSize":"large"} /-->
-						<!-- wp:post-date {"fontSize":"small"} /-->
-						<!-- wp:post-excerpt {"moreText":"Read more →"} /-->
-					</div>
-					<!-- /wp:group -->
-					<!-- /wp:post-template -->
-					<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"}} -->
-					<!-- wp:query-pagination-previous /-->
-					<!-- wp:query-pagination-numbers /-->
-					<!-- wp:query-pagination-next /-->
-					<!-- /wp:query-pagination -->
+	<!-- wp:group {"align":"full","className":"ej-blog-archive-wrap","layout":{"type":"default"}} -->
+	<div class="wp-block-group alignfull ej-blog-archive-wrap">
+		<!-- wp:group {"className":"explore-jawai-shell","layout":{"type":"default"}} -->
+		<div class="wp-block-group explore-jawai-shell">
+			<!-- wp:columns {"isStackedOnMobile":true,"className":"ej-blog-with-sidebar explore-jawai-blog-layout"} -->
+			<div class="wp-block-columns is-stacked-on-mobile ej-blog-with-sidebar explore-jawai-blog-layout">
+				<!-- wp:column -->
+				<div class="wp-block-column ej-blog-main-col">
+					<!-- wp:shortcode -->
+					[explore_jawai_editorial_blog]
+					<!-- /wp:shortcode -->
 				</div>
-				<!-- /wp:query -->
-			</div>
-			<!-- /wp:column -->
+				<!-- /wp:column -->
 
-			<!-- wp:column -->
-			<div class="wp-block-column">
-				<!-- wp:template-part {"slug":"sidebar","area":"uncategorized"} /-->
+				<!-- wp:column {"className":"ej-blog-sidebar-col"} -->
+				<div class="wp-block-column ej-blog-sidebar-col">
+					<!-- wp:template-part {"slug":"sidebar","area":"uncategorized"} /-->
+				</div>
+				<!-- /wp:column -->
 			</div>
-			<!-- /wp:column -->
+			<!-- /wp:columns -->
 		</div>
-		<!-- /wp:columns -->
+		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
 </main>

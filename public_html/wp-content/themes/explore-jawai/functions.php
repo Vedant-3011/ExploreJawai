@@ -79,7 +79,6 @@ add_filter(
 			'explore_jawai_home_journal',
 			'explore_jawai_editorial_cards',
 			'explore_jawai_editorial_blog',
-			'explore_jawai_single_topic_filters',
 		);
 		if ( in_array( $tag, $tags, true ) ) {
 			return explore_jawai_fix_autop_block_html( $output );
@@ -103,7 +102,6 @@ add_filter(
 );
 add_shortcode( 'explore_jawai_home_journal', static fn () => explore_jawai_render_partial( 'editorial-home-journal.php' ) );
 add_shortcode( 'explore_jawai_editorial_blog', static fn () => explore_jawai_render_partial( 'editorial-blog-archive.php' ) );
-add_shortcode( 'explore_jawai_single_topic_filters', static fn () => explore_jawai_render_partial( 'editorial-single-filters.php' ) );
 
 add_filter(
 	'body_class',
@@ -136,7 +134,7 @@ add_action(
 			'explore-jawai',
 			get_stylesheet_uri(),
 			array( 'explore-jawai-parent' ),
-			'2.1.9'
+			'2.2.0'
 		);
 		if ( defined( 'EXPLORE_JAWAI_EDITORIAL' ) && EXPLORE_JAWAI_EDITORIAL ) {
 			wp_enqueue_style(
@@ -149,16 +147,7 @@ add_action(
 				'explore-jawai-editorial',
 				get_stylesheet_directory_uri() . '/assets/css/editorial.css',
 				array( 'explore-jawai' ),
-				'2.1.9'
-			);
-		}
-		if ( is_home() && ! is_front_page() ) {
-			wp_enqueue_script(
-				'explore-jawai-blog-filters',
-				get_stylesheet_directory_uri() . '/assets/js/editorial-blog-filters.js',
-				array(),
-				'2.1.9',
-				true
+				'2.2.0'
 			);
 		}
 	}

@@ -473,6 +473,109 @@ body.ej-editorial .explore-jawai-footer-banner {
 
 .ej-blog-archive-wrap {
 	padding: clamp(3.5rem, 8vw, 6.25rem) 0;
+	background: var(--ej-paper);
+}
+
+.ej-blog-with-sidebar,
+.ej-single-with-sidebar {
+	align-items: flex-start;
+	gap: clamp(2rem, 4vw, 3.5rem) !important;
+}
+
+.ej-blog-with-sidebar .ej-home-blog-grid,
+.ej-blog-archive-main .ej-home-blog-grid {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.ej-blog-sidebar-col,
+.ej-single-with-sidebar .ej-blog-sidebar-col {
+	flex: 0 1 300px !important;
+	max-width: 320px;
+	min-width: 260px !important;
+}
+
+.ej-blog-page-hero--compact {
+	padding-bottom: 2.5rem;
+}
+
+.ej-blog-archive-title {
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: clamp(2rem, 4vw, 2.75rem);
+	font-weight: 400;
+	color: #fff;
+	margin: 0;
+}
+
+body.ej-editorial .explore-jawai-sidebar {
+	background: var(--ej-white) !important;
+	border: 1px solid var(--ej-line);
+	border-radius: 6px;
+	box-shadow: 0 10px 30px rgba(27, 43, 32, 0.05);
+	padding: 1.5rem 1.35rem !important;
+	position: sticky;
+	top: 100px;
+}
+
+body.ej-editorial .explore-jawai-sidebar h3 {
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 1.05rem;
+	font-weight: 400;
+	color: var(--ej-muted);
+	margin-bottom: 0.85rem;
+}
+
+body.ej-editorial .explore-jawai-sidebar .wp-block-separator {
+	border-color: var(--ej-line);
+	margin: 1.25rem 0;
+}
+
+body.ej-editorial .explore-jawai-sidebar .wp-block-categories-list a {
+	color: var(--ej-clay);
+	font-weight: 700;
+	font-size: 0.92rem;
+	text-decoration: none;
+}
+
+body.ej-editorial .explore-jawai-sidebar .wp-block-categories-list a:hover,
+body.ej-editorial .explore-jawai-sidebar .current-cat a {
+	color: var(--ej-green);
+}
+
+body.ej-editorial .explore-jawai-sidebar .wp-block-latest-posts a {
+	color: var(--ej-clay);
+	font-weight: 600;
+	font-size: 0.9rem;
+	line-height: 1.35;
+}
+
+body.ej-editorial .explore-jawai-sidebar .wp-block-latest-posts__post-date {
+	font-size: 0.8rem;
+	color: var(--ej-muted);
+	margin-top: 0.25rem;
+}
+
+body.ej-editorial .ej-single-content-col .ej-single-prose,
+body.ej-editorial .ej-single-content-col .wp-block-post-content {
+	margin-left: 0;
+	margin-right: 0;
+	max-width: 100%;
+}
+
+@media (max-width: 900px) {
+	.ej-blog-with-sidebar .ej-home-blog-grid,
+	.ej-blog-archive-main .ej-home-blog-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.ej-blog-sidebar-col,
+	.ej-single-with-sidebar .ej-blog-sidebar-col {
+		flex-basis: 100% !important;
+		max-width: 100%;
+	}
+
+	body.ej-editorial .explore-jawai-sidebar {
+		position: static;
+	}
 }
 
 .ej-blog-filters {
