@@ -939,18 +939,58 @@ body.ej-editorial .explore-jawai-page {
 .ej-about-band {
 	background: var(--ej-green);
 	color: #fff;
-	padding: clamp(2.25rem, 5vw, 3rem) clamp(1.25rem, 4vw, 3rem);
+	padding: 0;
 	margin-top: 0;
 	margin-bottom: 0 !important;
 	box-sizing: border-box;
 }
 
 .ej-about-band .explore-jawai-shell.ej-about-band__inner {
-	width: min(var(--ej-max, 1320px), 100%);
+	width: min(var(--ej-max, 1320px), calc(100% - 2 * var(--ej-gutter, 1.25rem)));
 	max-width: 100%;
 	margin-inline: auto;
-	padding-left: 0 !important;
-	padding-right: 0 !important;
+	padding: clamp(2rem, 5vw, 3rem) var(--ej-gutter, 1.25rem) !important;
+	box-sizing: border-box;
+}
+
+.ej-about-band__grid {
+	display: grid !important;
+	grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+	gap: clamp(1.25rem, 3vw, 2rem);
+	align-items: stretch;
+	width: 100%;
+}
+
+.ej-about-band__copy {
+	border: 1px solid rgba(255, 255, 255, 0.28);
+	padding: clamp(1.35rem, 4vw, 2.1rem);
+	background: rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+}
+
+.ej-about-band__btn-wrap {
+	margin: 1.75rem 0 0 !important;
+}
+
+.ej-about-band__btn-wrap .ej-editorial-btn {
+	display: inline-flex;
+}
+
+.ej-about-band__visual {
+	margin: 0 !important;
+	min-height: clamp(220px, 42vw, 340px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	overflow: hidden;
+	background: #1f3025;
+}
+
+.ej-about-band__visual img {
+	width: 100%;
+	height: 100%;
+	min-height: clamp(220px, 42vw, 340px);
+	object-fit: cover;
+	object-position: center 45%;
+	display: block;
 }
 
 .ej-about-band .ej-editorial-eyebrow {
@@ -970,29 +1010,12 @@ body.ej-editorial .explore-jawai-page {
 }
 
 .ej-about-band__lead,
-.ej-about-band__inner > .wp-block-group p:not(.ej-editorial-eyebrow) {
+.ej-about-band__copy p:not(.ej-editorial-eyebrow):not(.ej-about-band__btn-wrap) {
 	color: rgba(255, 255, 255, 0.82);
 	font-size: 1rem;
 	line-height: 1.6;
 	margin: 0;
 	max-width: 520px;
-}
-
-.ej-about-band__cta {
-	flex-shrink: 0;
-	margin: 1.5rem 0 0 !important;
-	padding: 0 !important;
-}
-
-@media (min-width: 900px) {
-	.ej-about-band__cta {
-		margin-top: 0 !important;
-		margin-left: 1.5rem;
-	}
-}
-
-.ej-about-band__cta p {
-	margin: 0 !important;
 }
 
 .ej-about-band .ej-editorial-btn--light {
@@ -1048,8 +1071,8 @@ body.ej-editorial .explore-jawai-page-content > .ej-about-band {
 	margin-right: calc(50% - 50vw) !important;
 	margin-bottom: 0 !important;
 	box-sizing: border-box;
-	padding-left: clamp(1.25rem, 4vw, 3rem) !important;
-	padding-right: clamp(1.25rem, 4vw, 3rem) !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
 
 body.ej-editorial.ej-about-page-active .explore-jawai-page-content,
@@ -1073,11 +1096,8 @@ body.ej-editorial .explore-jawai-footer.alignfull {
 }
 
 .ej-about-band__inner {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 2rem;
-	flex-wrap: wrap;
+	display: block;
+	max-width: 100%;
 }
 
 .ej-about-band p {
@@ -1538,20 +1558,15 @@ body.ej-editorial .explore-jawai-faq-item > p {
 		width: 100% !important;
 	}
 
-	.ej-editorial-band__inner,
-	.ej-about-band__inner {
-		flex-direction: column;
-		align-items: stretch;
-		gap: 1.5rem;
+	.ej-about-band__grid {
+		grid-template-columns: 1fr;
 	}
 
-	.ej-about-band__cta {
-		width: 100%;
-		margin-top: 0.75rem !important;
-		margin-left: 0 !important;
+	.ej-about-band__visual {
+		order: -1;
 	}
 
-	.ej-about-band__cta .ej-editorial-btn {
+	.ej-about-band__btn-wrap .ej-editorial-btn {
 		display: flex;
 		width: 100%;
 		justify-content: center;
@@ -1622,7 +1637,7 @@ body.ej-editorial .explore-jawai-faq-item > p {
 		justify-content: center;
 	}
 
-	.ej-about-band__inner .ej-editorial-btn,
+	.ej-about-band__btn-wrap .ej-editorial-btn,
 	.ej-editorial-band__inner .ej-editorial-btn {
 		width: 100%;
 		text-align: center;
