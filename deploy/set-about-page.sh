@@ -18,7 +18,7 @@ fi
 ABOUT_ID=$(wp post list --post_type=page --name=about --field=ID 2>/dev/null || true)
 if [[ -z "$ABOUT_ID" ]]; then
 	ABOUT_ID=$(wp post create --post_type=page --post_status=publish \
-		--post_title='About Explore Jawai' --post_name=about --porcelain)
+		--post_title='Explore Jawai' --post_name=about --porcelain)
 fi
 
 wp eval "
@@ -29,16 +29,16 @@ if ( \$content === false ) {
 }
 wp_update_post( array(
 	'ID'           => \$about_id,
-	'post_title'   => 'About Explore Jawai',
+	'post_title'   => 'Explore Jawai',
 	'post_name'    => 'about',
 	'post_status'  => 'publish',
-	'post_excerpt' => 'Independent travel blog for Jawai Bandh — leopards, Rabari culture, and responsible safari guides in Rajasthan.',
+	'post_excerpt' => 'Discover Jawai\'s granite landscape, wildlife, Jawai Bandh, birdlife and Rabari pastoral culture in Pali, Rajasthan.',
 	'post_content' => \$content,
 ) );
 "
 
 # Optional featured image for SEO / social (not shown when using in-content hero).
-THEME_IMG="$WP_PATH/wp-content/themes/explore-jawai/assets/images/jawai-landscape.jpg"
+THEME_IMG="$WP_PATH/wp-content/themes/explore-jawai/assets/images/jawai-granite-hills-leopard-hero.webp"
 if [[ -f "$THEME_IMG" ]]; then
 	ATT_ID=$(wp post list --post_type=attachment --title='Jawai landscape about' --field=ID 2>/dev/null || true)
 	if [[ -z "$ATT_ID" ]]; then

@@ -275,6 +275,129 @@ body.ej-editorial .explore-jawai-home-sidebar {
 	background: var(--ej-white) !important;
 }
 
+/* —— About / Explore Jawai page (prototype explore-jawai.html) —— */
+body.ej-editorial .explore-jawai-page {
+	padding-top: 0;
+}
+
+.ej-about-page-hero {
+	background: var(--ej-paper);
+	padding: 3rem 0 2.5rem;
+	border-bottom: 1px solid var(--ej-line);
+}
+
+.ej-about-breadcrumbs {
+	font-size: 0.85rem;
+	color: var(--ej-muted);
+	margin-bottom: 1rem !important;
+}
+
+.ej-about-breadcrumbs a {
+	color: var(--ej-muted);
+	text-decoration: none;
+}
+
+.ej-about-breadcrumbs a:hover {
+	color: var(--ej-clay);
+}
+
+.ej-about-title {
+	font-size: clamp(2rem, 5vw, 3.25rem) !important;
+	line-height: 1.12;
+	color: var(--ej-ink);
+	margin-bottom: 1rem !important;
+}
+
+.ej-about-intro {
+	font-size: 1.1rem;
+	max-width: 640px;
+	color: var(--ej-muted);
+}
+
+.ej-about-body {
+	padding: 3rem 0 4rem;
+}
+
+.ej-about-content-grid {
+	gap: 2.5rem !important;
+	align-items: flex-start;
+}
+
+.ej-about-prose h2 {
+	margin-top: 2.25rem;
+	margin-bottom: 0.75rem;
+}
+
+.ej-about-prose h2:first-of-type {
+	margin-top: 0;
+}
+
+.ej-about-list {
+	padding-left: 1.25rem;
+	margin: 1rem 0 1.5rem;
+}
+
+.ej-about-list li {
+	margin-bottom: 0.5rem;
+}
+
+.ej-about-callout {
+	background: var(--ej-white);
+	border: 1px solid var(--ej-line);
+	border-left: 4px solid var(--ej-clay);
+	padding: 1rem 1.25rem;
+	margin: 1.5rem 0;
+	border-radius: 4px;
+}
+
+.ej-about-side-card {
+	background: var(--ej-white);
+	border: 1px solid var(--ej-line);
+	padding: 1.5rem 1.35rem;
+	border-radius: 6px;
+	position: sticky;
+	top: 100px;
+}
+
+.ej-about-side-card h3 {
+	font-size: 1.15rem !important;
+	margin: 0 0 0.75rem !important;
+}
+
+.ej-about-side-card a {
+	color: var(--ej-green);
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.ej-about-side-card a:hover {
+	color: var(--ej-clay);
+}
+
+.ej-about-side-spaced {
+	margin-top: 1.75rem !important;
+}
+
+.ej-about-band {
+	background: var(--ej-green);
+	color: #fff;
+	padding: 2.75rem 0;
+	margin-top: 0;
+}
+
+.ej-about-band__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2rem;
+	flex-wrap: wrap;
+}
+
+.ej-about-band p {
+	color: rgba(255, 255, 255, 0.78);
+	max-width: 520px;
+}
+
 @media (max-width: 850px) {
 	.ej-editorial-cards {
 		grid-template-columns: 1fr;
@@ -286,5 +409,9 @@ body.ej-editorial .explore-jawai-home-sidebar {
 
 	body.ej-editorial .explore-jawai-header-actions .explore-jawai-header-signin {
 		display: none;
+	}
+
+	.ej-about-side-card {
+		position: static;
 	}
 }
