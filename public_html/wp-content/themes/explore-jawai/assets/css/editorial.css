@@ -939,9 +939,51 @@ body.ej-editorial .explore-jawai-page {
 .ej-about-band {
 	background: var(--ej-green);
 	color: #fff;
-	padding: 2.75rem 0;
+	padding: clamp(2.25rem, 5vw, 3rem) 0;
 	margin-top: 0;
 	margin-bottom: 0 !important;
+}
+
+.ej-about-band .ej-editorial-eyebrow {
+	color: #e0bd91 !important;
+}
+
+.ej-about-band__title,
+.ej-about-band h2,
+.ej-about-band h2.ej-serif {
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: clamp(1.85rem, 4.5vw, 2.35rem);
+	font-weight: 400;
+	line-height: 1.15;
+	margin: 0 0 0.85rem !important;
+	color: #ffffff !important;
+	-webkit-text-fill-color: #ffffff;
+}
+
+.ej-about-band__lead,
+.ej-about-band__inner > .wp-block-group p:not(.ej-editorial-eyebrow) {
+	color: rgba(255, 255, 255, 0.82);
+	font-size: 1rem;
+	line-height: 1.6;
+	margin: 0;
+	max-width: 520px;
+}
+
+.ej-about-band__cta {
+	flex-shrink: 0;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.ej-about-band__cta p {
+	margin: 0 !important;
+}
+
+.ej-about-band .ej-editorial-btn--light {
+	background: var(--ej-white);
+	color: var(--ej-green);
+	border-color: var(--ej-white);
+	font-weight: 700;
 }
 
 /* Green CTA is the last block — no cream gap before footer. */
@@ -984,11 +1026,22 @@ body.ej-editorial main:has(.ej-editorial-band) {
 
 body.ej-editorial .ej-about-band.alignfull,
 body.ej-editorial .explore-jawai-page-content > .ej-about-band {
-	width: 100% !important;
-	max-width: none !important;
-	margin-left: 0 !important;
-	margin-right: 0 !important;
+	width: 100vw !important;
+	max-width: 100vw !important;
+	margin-left: calc(50% - 50vw) !important;
+	margin-right: calc(50% - 50vw) !important;
 	margin-bottom: 0 !important;
+	box-sizing: border-box;
+}
+
+body.ej-editorial.ej-about-page-active .explore-jawai-page-content,
+body.ej-editorial.ej-about-page-active .wp-block-post-content.explore-jawai-page-content {
+	padding-bottom: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+body.ej-editorial.ej-about-page-active .explore-jawai-main.explore-jawai-page {
+	padding-bottom: 0 !important;
 }
 
 body.ej-editorial.ej-about-page-active .explore-jawai-page-content > .ej-about-band:last-child,
@@ -1470,7 +1523,19 @@ body.ej-editorial .explore-jawai-faq-item > p {
 	.ej-editorial-band__inner,
 	.ej-about-band__inner {
 		flex-direction: column;
-		align-items: flex-start;
+		align-items: stretch;
+		gap: 1.25rem;
+	}
+
+	.ej-about-band__cta {
+		width: 100%;
+	}
+
+	.ej-about-band__cta .ej-editorial-btn {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		box-sizing: border-box;
 	}
 }
 
