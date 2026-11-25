@@ -42,27 +42,92 @@ body.ej-editorial .explore-jawai-header-signin a:hover {
 
 /* Mobile header overlay menu */
 body.ej-editorial .explore-jawai-header-nav .wp-block-navigation__responsive-container.is-menu-open {
+	position: fixed !important;
+	inset: 0 !important;
+	width: 100% !important;
+	max-width: 100% !important;
+	height: 100vh !important;
+	height: 100dvh !important;
+	margin: 0 !important;
 	background: var(--ej-green-dark) !important;
 	color: #fff;
-	padding: clamp(1.25rem, 4vw, 2rem) !important;
+	padding: clamp(4.25rem, 14vw, 5.5rem) var(--ej-gutter, 1.25rem) 2rem !important;
 	z-index: 300;
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: stretch !important;
+	justify-content: flex-start !important;
+	overflow-y: auto;
+	box-sizing: border-box;
+}
+
+body.ej-editorial .explore-jawai-header-nav .wp-block-navigation__responsive-container.is-menu-open
+	.wp-block-navigation__responsive-container-content {
+	width: 100% !important;
+	max-width: none !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+body.ej-editorial .explore-jawai-header-nav .wp-block-navigation__responsive-container.is-menu-open
+	.wp-block-navigation__responsive-dialog {
+	width: 100% !important;
+	max-width: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	border: none !important;
+	box-shadow: none !important;
+	background: transparent !important;
 }
 
 body.ej-editorial .explore-jawai-header-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item a {
 	color: #fff !important;
-	font-size: 0.9rem !important;
-	padding: 0.65rem 0 !important;
-	border-bottom: none !important;
+	display: block !important;
+	width: 100% !important;
+	box-sizing: border-box;
+	font-size: 0.78rem !important;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	font-weight: 600;
+	padding: 0.9rem 0 !important;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
+	text-decoration: none;
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+body.ej-editorial .explore-jawai-header-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item a:hover,
+body.ej-editorial .explore-jawai-header-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item a:focus-visible {
+	color: var(--ej-sand) !important;
+	border-bottom-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+body.ej-editorial .explore-jawai-header-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item a:focus-visible {
+	outline: 2px solid var(--ej-sand) !important;
+	outline-offset: 2px;
 }
 
 body.ej-editorial .explore-jawai-header-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container {
 	flex-direction: column !important;
-	align-items: flex-start !important;
-	gap: 0.25rem !important;
+	align-items: stretch !important;
+	width: 100% !important;
+	gap: 0 !important;
+}
+
+body.ej-editorial .explore-jawai-header-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item {
+	width: 100% !important;
 }
 
 body.ej-editorial .explore-jawai-header-nav .wp-block-navigation__responsive-container-close {
+	position: fixed !important;
+	top: clamp(0.85rem, 3vw, 1.15rem) !important;
+	right: var(--ej-gutter, 1.25rem) !important;
+	z-index: 301;
 	color: #fff;
+	background: transparent;
+	border: none;
+	padding: 0.45rem !important;
+	margin: 0 !important;
 }
 
 body.ej-editorial .explore-jawai-header-nav .wp-block-navigation__responsive-container-open svg {
@@ -1607,6 +1672,34 @@ body.ej-editorial .explore-jawai-faq-item > p {
 	margin: 0;
 }
 
+@media (max-width: 782px) {
+	.ej-editorial-band__inner {
+		flex-direction: column !important;
+		align-items: stretch !important;
+		gap: 1.35rem !important;
+	}
+
+	.ej-editorial-band__inner > .wp-block-group,
+	.ej-editorial-band__inner > p {
+		width: 100% !important;
+		max-width: 100% !important;
+		margin: 0 !important;
+	}
+
+	.ej-editorial-band__inner > p:has(.ej-editorial-btn) {
+		margin-top: 0.25rem !important;
+	}
+
+	.ej-editorial-band__inner .ej-editorial-btn {
+		display: flex !important;
+		width: 100% !important;
+		max-width: 100% !important;
+		box-sizing: border-box;
+		justify-content: center;
+		text-align: center;
+	}
+}
+
 @media (max-width: 900px) {
 	.ej-blog-with-sidebar.explore-jawai-blog-layout,
 	.ej-contact-content-grid.wp-block-columns,
@@ -1714,8 +1807,12 @@ body.ej-editorial .explore-jawai-faq-item > p {
 
 	.ej-about-band__btn-wrap .ej-editorial-btn,
 	.ej-editorial-band__inner .ej-editorial-btn {
-		width: 100%;
+		display: flex !important;
+		width: 100% !important;
+		max-width: 100% !important;
+		box-sizing: border-box;
 		text-align: center;
+		justify-content: center;
 	}
 
 	.explore-jawai-footer-bar {
