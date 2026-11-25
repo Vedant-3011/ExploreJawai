@@ -28,19 +28,23 @@ function explore_jawai_blog_card_category( $post ) {
 	return $map[ $name ] ?? $name;
 }
 
-if ( is_category() || is_tag() || is_author() || is_date() || is_search() ) {
+if ( is_home() || is_category() || is_tag() || is_author() || is_date() || is_search() ) {
 	$query = $GLOBALS['wp_query'];
 } else {
+	$paged = max( 1, (int) get_query_var( 'paged' ), (int) get_query_var( 'page' ) );
 	$query = new WP_Query(
 		array(
 			'post_type'      => 'post',
 			'post_status'    => 'publish',
-			'posts_per_page' => 100,
+			'posts_per_page' => 4,
+			'paged'          => $paged,
 			'orderby'        => 'date',
 			'order'          => 'DESC',
 		)
 	);
 }
+
+$paged = max( 1, (int) get_query_var( 'paged' ), (int) get_query_var( 'page' ) );
 ?>
 <div class="ej-blog-archive-main">
 	<div class="ej-home-section-head">
@@ -67,10 +71,30 @@ if ( is_category() || is_tag() || is_author() || is_date() || is_search() ) {
 				</article>
 				<?php
 			endwhile;
-			if ( ! ( is_category() || is_tag() || is_author() || is_date() || is_search() ) ) {
-				wp_reset_postdata();
-			}
 			?>
 		</div>
+		<?php if ( $query->max_num_pages > 1 ) : ?>
+			<nav class="ej-blog-pagination" aria-label="<?php esc_attr_e( 'Journal pages', 'explore-jawai' ); ?>">
+				<?php
+				echo wp_kses_post(
+					paginate_links(
+						array(
+							'total'     => $query->max_num_pages,
+							'current'   => $paged,
+							'mid_size'  => 1,
+							'prev_text' => '← ' . esc_html__( 'Previous', 'explore-jawai' ),
+							'next_text' => esc_html__( 'Next', 'explore-jawai' ) . ' →',
+							'type'      => 'list',
+						)
+					)
+				);
+				?>
+			</nav>
+		<?php endif; ?>
+		<?php
+		if ( ! ( is_home() || is_category() || is_tag() || is_author() || is_date() || is_search() ) ) {
+			wp_reset_postdata();
+		}
+		?>
 	<?php endif; ?>
 </div>

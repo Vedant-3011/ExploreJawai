@@ -406,6 +406,62 @@ body.ej-editorial .explore-jawai-footer-banner {
 	display: none;
 }
 
+.ej-blog-pagination {
+	margin: 2.25rem 0 0;
+	padding-top: 1.5rem;
+	border-top: 1px solid var(--ej-line);
+}
+
+.ej-blog-pagination .page-numbers {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 0.65rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	align-items: center;
+	justify-content: center;
+}
+
+.ej-blog-pagination li {
+	margin: 0;
+	padding: 0;
+}
+
+.ej-blog-pagination a,
+.ej-blog-pagination span {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 2.5rem;
+	padding: 0.5rem 0.85rem;
+	font-size: 0.88rem;
+	font-weight: 700;
+	text-decoration: none;
+	border: 1px solid var(--ej-line);
+	border-radius: 3px;
+	color: var(--ej-ink);
+	background: var(--ej-white);
+}
+
+.ej-blog-pagination a:hover {
+	border-color: var(--ej-clay);
+	color: var(--ej-clay);
+}
+
+.ej-blog-pagination .current {
+	background: var(--ej-green);
+	border-color: var(--ej-green);
+	color: #fff;
+}
+
+.ej-blog-pagination .dots {
+	border: none;
+	background: transparent;
+	min-width: auto;
+	padding: 0.5rem 0.25rem;
+}
+
 /* —— Blog index (prototype blog.html) —— */
 .ej-blog-page-hero {
 	position: relative;

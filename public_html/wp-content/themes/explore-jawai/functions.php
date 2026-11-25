@@ -144,7 +144,7 @@ add_action(
 			'explore-jawai',
 			get_stylesheet_uri(),
 			array( 'explore-jawai-parent' ),
-			'2.2.5'
+			'2.2.6'
 		);
 		if ( defined( 'EXPLORE_JAWAI_EDITORIAL' ) && EXPLORE_JAWAI_EDITORIAL ) {
 			wp_enqueue_style(
@@ -157,8 +157,20 @@ add_action(
 				'explore-jawai-editorial',
 				get_stylesheet_directory_uri() . '/assets/css/editorial.css',
 				array( 'explore-jawai' ),
-				'2.2.5'
+				'2.2.6'
 			);
+		}
+	}
+);
+
+add_action(
+	'pre_get_posts',
+	static function ( $query ) {
+		if ( is_admin() || ! $query->is_main_query() ) {
+			return;
+		}
+		if ( $query->is_home() || $query->is_category() || $query->is_tag() || $query->is_author() || $query->is_date() || ( $query->is_search() && $query->get( 'post_type' ) !== 'page' ) ) {
+			$query->set( 'posts_per_page', 4 );
 		}
 	}
 );
