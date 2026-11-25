@@ -146,7 +146,7 @@ add_action(
 			'explore-jawai',
 			get_stylesheet_uri(),
 			array( 'explore-jawai-parent' ),
-			'2.4.5'
+			'2.4.6'
 		);
 		if ( defined( 'EXPLORE_JAWAI_EDITORIAL' ) && EXPLORE_JAWAI_EDITORIAL ) {
 			wp_enqueue_style(
@@ -159,7 +159,7 @@ add_action(
 				'explore-jawai-editorial',
 				get_stylesheet_directory_uri() . '/assets/css/editorial.css',
 				array( 'explore-jawai' ),
-				'2.4.5'
+				'2.4.6'
 			);
 		}
 	}
