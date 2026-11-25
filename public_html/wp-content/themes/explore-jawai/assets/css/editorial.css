@@ -107,13 +107,15 @@ body.ej-editorial .explore-jawai-footer-banner {
 	color: #e0bd91;
 }
 
-.ej-editorial-hero h1 {
+.ej-editorial-hero h1,
+.ej-editorial-hero .ej-editorial-hero-title {
 	font-family: Georgia, "Times New Roman", serif;
 	font-size: clamp(2.5rem, 6vw, 4.5rem);
 	line-height: 1.02;
 	margin: 18px 0 22px;
 	font-weight: 400;
 	letter-spacing: -0.03em;
+	color: #fff !important;
 }
 
 .ej-editorial-hero p {
@@ -770,6 +772,16 @@ body.ej-editorial .explore-jawai-journal-card {
 body.ej-editorial .explore-jawai-journal-title,
 body.ej-editorial .ej-serif {
 	color: var(--ej-ink);
+}
+
+/* Dark image heroes — serif titles stay white (override .ej-serif ink) */
+body.ej-editorial .ej-editorial-hero h1.ej-serif,
+body.ej-editorial .ej-editorial-hero .ej-editorial-hero-title.ej-serif,
+body.ej-editorial .ej-blog-page-hero h1.ej-serif,
+body.ej-editorial .ej-blog-page-hero .ej-blog-page-hero__title,
+body.ej-editorial .ej-blog-page-hero .ej-blog-page-hero__title.ej-serif,
+body.ej-editorial .ej-blog-archive-title {
+	color: #fff !important;
 }
 
 body.ej-editorial .explore-jawai-home-sidebar {
