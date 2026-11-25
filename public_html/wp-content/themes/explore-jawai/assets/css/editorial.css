@@ -922,14 +922,28 @@ body.ej-editorial .explore-jawai-page {
 	margin: 0 0 0.75rem !important;
 }
 
-.ej-about-side-card a {
+.ej-about-side-card p a {
+	display: block;
+	padding: 0.4rem 0;
 	color: var(--ej-green);
-	font-weight: 600;
+	font-weight: 700;
+	font-size: 0.92rem;
+	line-height: 1.45;
 	text-decoration: none;
 }
 
-.ej-about-side-card a:hover {
+.ej-about-side-card p a::before {
+	content: "↗\00a0";
 	color: var(--ej-clay);
+	font-weight: 700;
+}
+
+.ej-about-side-card p a:hover {
+	color: var(--ej-clay);
+}
+
+.ej-about-side-card p a:hover::before {
+	color: var(--ej-green);
 }
 
 .ej-about-side-spaced {
@@ -1520,6 +1534,11 @@ body.ej-editorial .explore-jawai-faq-item > p {
 	font-weight: 700;
 	color: var(--ej-clay);
 	text-decoration: none;
+}
+
+.ej-contact-side-link::before {
+	content: "↗\00a0";
+	font-weight: 700;
 }
 
 .ej-contact-side-link:hover {
