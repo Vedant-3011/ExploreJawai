@@ -911,6 +911,40 @@ body.ej-editorial.ej-about-page-active .wp-block-template-part:has(.explore-jawa
 	margin-top: 0 !important;
 }
 
+body.ej-editorial .wp-site-blocks > main.explore-jawai-main {
+	margin-block-end: 0 !important;
+}
+
+body.ej-editorial .wp-site-blocks > footer.wp-block-template-part,
+body.ej-editorial .wp-site-blocks > .wp-block-template-part:has(.explore-jawai-footer) {
+	margin-block-start: 0 !important;
+	padding-block-start: 0 !important;
+}
+
+body.ej-editorial main:has(.ej-editorial-band) {
+	padding-bottom: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+body.ej-editorial .ej-about-band.alignfull,
+body.ej-editorial .explore-jawai-page-content > .ej-about-band {
+	width: 100% !important;
+	max-width: none !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+body.ej-editorial.ej-about-page-active .explore-jawai-page-content > .ej-about-band:last-child,
+body.ej-editorial .explore-jawai-page-content > .ej-about-band:last-child {
+	margin-block-end: 0 !important;
+}
+
+body.ej-editorial.ej-about-page-active .explore-jawai-footer,
+body.ej-editorial .explore-jawai-footer.alignfull {
+	margin-top: 0 !important;
+}
+
 .ej-about-band__inner {
 	display: flex;
 	align-items: center;
