@@ -939,9 +939,18 @@ body.ej-editorial .explore-jawai-page {
 .ej-about-band {
 	background: var(--ej-green);
 	color: #fff;
-	padding: clamp(2.25rem, 5vw, 3rem) 0;
+	padding: clamp(2.25rem, 5vw, 3rem) clamp(1.25rem, 4vw, 3rem);
 	margin-top: 0;
 	margin-bottom: 0 !important;
+	box-sizing: border-box;
+}
+
+.ej-about-band .explore-jawai-shell.ej-about-band__inner {
+	width: min(var(--ej-max, 1320px), 100%);
+	max-width: 100%;
+	margin-inline: auto;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
 
 .ej-about-band .ej-editorial-eyebrow {
@@ -971,8 +980,15 @@ body.ej-editorial .explore-jawai-page {
 
 .ej-about-band__cta {
 	flex-shrink: 0;
-	margin: 0 !important;
+	margin: 1.5rem 0 0 !important;
 	padding: 0 !important;
+}
+
+@media (min-width: 900px) {
+	.ej-about-band__cta {
+		margin-top: 0 !important;
+		margin-left: 1.5rem;
+	}
 }
 
 .ej-about-band__cta p {
@@ -1032,6 +1048,8 @@ body.ej-editorial .explore-jawai-page-content > .ej-about-band {
 	margin-right: calc(50% - 50vw) !important;
 	margin-bottom: 0 !important;
 	box-sizing: border-box;
+	padding-left: clamp(1.25rem, 4vw, 3rem) !important;
+	padding-right: clamp(1.25rem, 4vw, 3rem) !important;
 }
 
 body.ej-editorial.ej-about-page-active .explore-jawai-page-content,
@@ -1524,11 +1542,13 @@ body.ej-editorial .explore-jawai-faq-item > p {
 	.ej-about-band__inner {
 		flex-direction: column;
 		align-items: stretch;
-		gap: 1.25rem;
+		gap: 1.5rem;
 	}
 
 	.ej-about-band__cta {
 		width: 100%;
+		margin-top: 0.75rem !important;
+		margin-left: 0 !important;
 	}
 
 	.ej-about-band__cta .ej-editorial-btn {
