@@ -5,6 +5,7 @@
 body.ej-editorial {
 	font-family: "DM Sans", Inter, ui-sans-serif, system-ui, sans-serif;
 	overflow-x: clip;
+	-webkit-tap-highlight-color: transparent;
 	--ej-ink: #233328;
 	--ej-green: #344638;
 	--ej-green-dark: #1f3025;
@@ -16,6 +17,23 @@ body.ej-editorial {
 	--ej-line: rgba(52, 70, 56, 0.16);
 	background: var(--ej-paper) !important;
 	color: var(--ej-ink);
+}
+
+/* Tap/click: no lingering square focus ring; keyboard users keep a subtle outline */
+body.ej-editorial :where(
+	a,
+	button,
+	.wp-block-button__link,
+	.wp-element-button,
+	.wp-block-navigation-item__content
+):focus:not(:focus-visible) {
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+body.ej-editorial :where(a, button, .wp-block-button__link, .wp-element-button):focus-visible {
+	outline: 2px solid var(--ej-clay);
+	outline-offset: 2px;
 }
 
 body.ej-editorial .explore-jawai-header {
@@ -96,15 +114,17 @@ body.ej-editorial .explore-jawai-header-nav .wp-block-navigation__responsive-con
 	box-shadow: none !important;
 }
 
-body.ej-editorial .explore-jawai-header-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item a:hover,
-body.ej-editorial .explore-jawai-header-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item a:focus-visible {
+body.ej-editorial .explore-jawai-header-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item a:hover {
 	color: var(--ej-sand) !important;
 	border-bottom-color: rgba(255, 255, 255, 0.14) !important;
 }
 
-body.ej-editorial .explore-jawai-header-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item a:focus-visible {
-	outline: 2px solid var(--ej-sand) !important;
-	outline-offset: 2px;
+body.ej-editorial .explore-jawai-header-nav .wp-block-navigation-item a:focus,
+body.ej-editorial .explore-jawai-header-nav .wp-block-navigation-item a:focus-visible,
+body.ej-editorial .explore-jawai-header-nav .wp-block-navigation-item__content:focus,
+body.ej-editorial .explore-jawai-header-nav .wp-block-navigation-item__content:focus-visible {
+	outline: none !important;
+	box-shadow: none !important;
 }
 
 body.ej-editorial .explore-jawai-header-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container {
