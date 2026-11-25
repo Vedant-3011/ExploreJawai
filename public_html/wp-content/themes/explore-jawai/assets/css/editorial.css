@@ -176,7 +176,14 @@ body.ej-editorial .explore-jawai-footer-banner {
 }
 
 /* —— Homepage (prototype index.html) —— */
-.ej-home-split-wrap,
+.ej-home-split-wrap {
+	padding: clamp(3.5rem, 8vw, 6.25rem) 0;
+	max-width: none !important;
+	width: 100%;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
 .ej-home-steps-wrap,
 .ej-home-journal-wrap {
 	padding: clamp(3.5rem, 8vw, 6.25rem) 0;
@@ -188,11 +195,16 @@ body.ej-editorial .explore-jawai-footer-banner {
 	padding-bottom: 4.5rem;
 }
 
+.explore-jawai-shell.ej-home-split,
 .ej-home-split {
-	display: grid;
+	display: grid !important;
 	grid-template-columns: 1fr 1fr;
 	gap: 70px;
 	align-items: center;
+}
+
+.ej-home-split__copy {
+	min-width: 0;
 }
 
 .ej-home-split h2.ej-serif,
@@ -239,7 +251,9 @@ body.ej-editorial .explore-jawai-footer-banner {
 }
 
 .ej-home-feature h3 {
-	font-size: 1.05rem;
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 1.15rem;
+	font-weight: 400;
 	margin: 0 0 4px;
 }
 

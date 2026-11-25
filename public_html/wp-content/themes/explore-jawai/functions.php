@@ -16,6 +16,20 @@ require_once get_stylesheet_directory() . '/inc/contact-form.php';
 define( 'EXPLORE_JAWAI_EDITORIAL', true );
 
 /**
+ * Collapse whitespace between tags so wpautop cannot inject stray paragraphs into shortcode HTML.
+ *
+ * @param string $html Markup from a theme partial.
+ * @return string
+ */
+function explore_jawai_compact_markup( $html ) {
+	$html = trim( (string) $html );
+	if ( '' === $html ) {
+		return '';
+	}
+	return (string) preg_replace( '/>\s+</', '><', $html );
+}
+
+/**
  * @param string $partial Partial under inc/.
  * @return string
  */
@@ -29,12 +43,62 @@ function explore_jawai_render_partial( $partial ) {
 	}
 	ob_start();
 	include $path;
-	return (string) ob_get_clean();
+	return explore_jawai_compact_markup( (string) ob_get_clean() );
 }
 
 add_shortcode( 'explore_jawai_editorial_cards', static fn () => explore_jawai_render_partial( 'editorial-cards-markup.php' ) );
 add_shortcode( 'explore_jawai_home_split', static fn () => explore_jawai_render_partial( 'editorial-home-split.php' ) );
 add_shortcode( 'explore_jawai_home_steps', static fn () => explore_jawai_render_partial( 'editorial-home-steps.php' ) );
+
+/**
+ * Undo wpautop damage inside editorial shortcodes (core/shortcode block).
+ *
+ * @param string $html Shortcode or block HTML.
+ * @return string
+ */
+function explore_jawai_fix_autop_block_html( $html ) {
+	$html = (string) $html;
+	if ( '' === $html || ( strpos( $html, 'ej-home-' ) === false && strpos( $html, 'ej-editorial-card' ) === false ) ) {
+		return $html;
+	}
+	$html = preg_replace( '#</span></p>\s*<div>#', '</span><div>', $html );
+	$html = preg_replace( '#<p>\s*(<(div|section|article|figure)\s)#i', '$1', $html );
+	$html = preg_replace( '#</(div|section|article|figure)>\s*</p>#i', '</$1>', $html );
+	$html = preg_replace( '#<p>\s*(<a class="ej-editorial-text-link")#', '$1', $html );
+	$html = preg_replace( '#(</a>)</p>(\s*</div>)#', '$1$2', $html );
+	$html = preg_replace( '#<img([^>]+)/>\s*<br\s*/?>#i', '<img$1 />', $html );
+	return $html;
+}
+
+add_filter(
+	'do_shortcode_tag',
+	static function ( $output, $tag ) {
+		static $tags = array(
+			'explore_jawai_home_split',
+			'explore_jawai_home_steps',
+			'explore_jawai_home_journal',
+			'explore_jawai_editorial_cards',
+		);
+		if ( in_array( $tag, $tags, true ) ) {
+			return explore_jawai_fix_autop_block_html( $output );
+		}
+		return $output;
+	},
+	20,
+	2
+);
+
+add_filter(
+	'render_block',
+	static function ( $content, $block ) {
+		if ( isset( $block['blockName'] ) && 'core/shortcode' === $block['blockName'] ) {
+			return explore_jawai_fix_autop_block_html( $content );
+		}
+		return $content;
+	},
+	20,
+	2
+);
 add_shortcode( 'explore_jawai_home_journal', static fn () => explore_jawai_render_partial( 'editorial-home-journal.php' ) );
 
 add_filter(
@@ -62,7 +126,7 @@ add_action(
 			'explore-jawai',
 			get_stylesheet_uri(),
 			array( 'explore-jawai-parent' ),
-			'2.1.4'
+			'2.1.6'
 		);
 		if ( defined( 'EXPLORE_JAWAI_EDITORIAL' ) && EXPLORE_JAWAI_EDITORIAL ) {
 			wp_enqueue_style(
@@ -75,7 +139,7 @@ add_action(
 				'explore-jawai-editorial',
 				get_stylesheet_directory_uri() . '/assets/css/editorial.css',
 				array( 'explore-jawai' ),
-				'2.1.4'
+				'2.1.6'
 			);
 		}
 	}
