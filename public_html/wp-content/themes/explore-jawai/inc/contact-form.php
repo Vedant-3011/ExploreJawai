@@ -31,8 +31,10 @@ function explore_jawai_contact_form_html() {
 			<p class="ej-contact-notice ej-contact-notice--error" role="alert"><?php esc_html_e( 'Something went wrong. Email us directly at admin@explorejawai.com.', 'explore-jawai' ); ?></p>
 		<?php endif; ?>
 		<form class="ej-contact-form ej-form-grid" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
-			<input type="hidden" name="action" value="explore_jawai_contact" />
-			<?php wp_nonce_field( 'explore_jawai_contact', 'explore_jawai_contact_nonce' ); ?>
+			<div class="ej-contact-form-secrets" hidden>
+				<input type="hidden" name="action" value="explore_jawai_contact" />
+				<?php wp_nonce_field( 'explore_jawai_contact', 'explore_jawai_contact_nonce' ); ?>
+			</div>
 			<div class="ej-form-field">
 				<label for="ej-contact-name"><?php esc_html_e( 'Your name', 'explore-jawai' ); ?></label>
 				<input id="ej-contact-name" type="text" name="contact_name" placeholder="<?php esc_attr_e( 'Name', 'explore-jawai' ); ?>" required autocomplete="name" />

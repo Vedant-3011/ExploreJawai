@@ -57,9 +57,11 @@ add_shortcode( 'explore_jawai_home_steps', static fn () => explore_jawai_render_
  */
 function explore_jawai_fix_autop_block_html( $html ) {
 	$html = (string) $html;
-	if ( '' === $html || ( strpos( $html, 'ej-home-' ) === false && strpos( $html, 'ej-blog-' ) === false && strpos( $html, 'ej-contact-' ) === false && strpos( $html, 'ej-editorial-card' ) === false ) ) {
+	if ( '' === $html || ( strpos( $html, 'ej-home-' ) === false && strpos( $html, 'ej-blog-' ) === false && strpos( $html, 'ej-contact-' ) === false && strpos( $html, 'ej-form-' ) === false && strpos( $html, 'ej-editorial-card' ) === false ) ) {
 		return $html;
 	}
+	$html = preg_replace( '#<p>\s*</p>\s*(?=<div class="ej-form-field")#', '', $html );
+	$html = preg_replace( '#(<form[^>]*class="[^"]*ej-contact-form[^"]*"[^>]*>)\s*<p>\s*</p>#', '$1', $html );
 	$html = preg_replace( '#</span></p>\s*<div>#', '</span><div>', $html );
 	$html = preg_replace( '#<p>\s*(<(div|section|article|figure)\s)#i', '$1', $html );
 	$html = preg_replace( '#</(div|section|article|figure)>\s*</p>#i', '</$1>', $html );
@@ -144,7 +146,7 @@ add_action(
 			'explore-jawai',
 			get_stylesheet_uri(),
 			array( 'explore-jawai-parent' ),
-			'2.2.6'
+			'2.2.7'
 		);
 		if ( defined( 'EXPLORE_JAWAI_EDITORIAL' ) && EXPLORE_JAWAI_EDITORIAL ) {
 			wp_enqueue_style(
@@ -157,7 +159,7 @@ add_action(
 				'explore-jawai-editorial',
 				get_stylesheet_directory_uri() . '/assets/css/editorial.css',
 				array( 'explore-jawai' ),
-				'2.2.6'
+				'2.2.7'
 			);
 		}
 	}

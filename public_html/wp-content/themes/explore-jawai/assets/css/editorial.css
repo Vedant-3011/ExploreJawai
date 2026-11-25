@@ -1165,23 +1165,44 @@ body.ej-editorial .explore-jawai-faq-item > p {
 }
 
 .ej-contact-content-grid {
+	display: grid !important;
+	grid-template-columns: minmax(0, 1fr) minmax(260px, 400px);
 	gap: clamp(2rem, 5vw, 3.75rem) !important;
-	align-items: flex-start;
+	align-items: start;
 }
 
-.ej-contact-main-col {
-	flex-basis: 58% !important;
+.ej-contact-content-grid > .wp-block-column {
+	flex-basis: auto !important;
+	width: 100% !important;
+	min-width: 0;
 }
 
+.ej-contact-main-col,
 .ej-contact-aside-col {
-	flex-basis: 38% !important;
-	max-width: 400px;
+	max-width: none;
+}
+
+.ej-contact-form-wrap,
+.ej-contact-form.ej-form-grid {
+	width: 100%;
+	max-width: 100%;
+}
+
+.ej-contact-form-secrets {
+	display: none !important;
 }
 
 .ej-form-grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+	display: grid !important;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: 16px;
+	align-items: start;
+}
+
+.ej-contact-form > p:empty {
+	display: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
 }
 
 .ej-form-field {
@@ -1200,18 +1221,33 @@ body.ej-editorial .explore-jawai-faq-item > p {
 	color: var(--ej-ink);
 }
 
-.ej-form-field input,
+.ej-form-field input:not([type="hidden"]),
 .ej-form-field select,
 .ej-form-field textarea {
 	width: 100%;
 	box-sizing: border-box;
+	margin: 0;
 	padding: 12px 14px;
 	border: 1px solid var(--ej-line);
 	border-radius: 3px;
 	background: var(--ej-white);
 	font-family: inherit;
 	font-size: 0.95rem;
+	line-height: 1.35;
 	color: var(--ej-ink);
+}
+
+.ej-form-field input:not([type="hidden"]),
+.ej-form-field select {
+	min-height: 46px;
+}
+
+.ej-form-field select {
+	appearance: none;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23697368' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 14px center;
+	padding-right: 2.25rem;
 }
 
 .ej-form-field textarea {
@@ -1232,6 +1268,17 @@ body.ej-editorial .explore-jawai-faq-item > p {
 	height: 0;
 	overflow: hidden;
 	margin: 0;
+}
+
+.ej-form-field--actions {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0;
+}
+
+.ej-contact-main-col .ej-home-section-intro {
+	margin-bottom: 1.5rem;
 }
 
 .ej-contact-submit {
@@ -1314,6 +1361,10 @@ body.ej-editorial .explore-jawai-faq-item > p {
 }
 
 @media (max-width: 850px) {
+	.ej-contact-content-grid {
+		grid-template-columns: 1fr !important;
+	}
+
 	.ej-form-grid {
 		grid-template-columns: 1fr;
 	}
