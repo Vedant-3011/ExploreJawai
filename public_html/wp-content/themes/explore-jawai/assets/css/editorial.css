@@ -432,6 +432,10 @@ body.ej-editorial .explore-jawai-footer-banner {
 
 .ej-home-blog-thumb {
 	height: 190px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-color: var(--ej-paper);
+	background-position: center;
 }
 
 .ej-blog-archive-grid .ej-home-blog-card[hidden] {
@@ -1222,7 +1226,7 @@ a.ej-blog-filter--link {
 	text-decoration: none;
 }
 
-/* Featured image — space below date only (no border/radius/shadow) */
+/* Featured image — full width in shell; scale wide banners on small screens */
 body.ej-editorial .ej-single-featured-frame {
 	margin: 1.35rem 0 2.5rem !important;
 	padding: 0 !important;
@@ -1230,7 +1234,10 @@ body.ej-editorial .ej-single-featured-frame {
 	border-radius: 0 !important;
 	box-shadow: none !important;
 	background: transparent !important;
+	width: 100%;
 	max-width: 100%;
+	overflow: hidden;
+	box-sizing: border-box;
 }
 
 body.ej-editorial .ej-single-featured-frame .wp-block-post-featured-image,
@@ -1240,14 +1247,22 @@ body.ej-editorial .ej-single-featured-frame .ej-single-featured {
 	border: none !important;
 	border-radius: 0 !important;
 	box-shadow: none !important;
-	overflow: visible;
+	width: 100% !important;
+	max-width: 100% !important;
+	aspect-ratio: auto !important;
+	overflow: hidden;
+	box-sizing: border-box;
 }
 
 body.ej-editorial .ej-single-featured-frame .wp-block-post-featured-image img,
 body.ej-editorial .ej-single-featured-frame .ej-single-featured img {
-	width: 100%;
-	height: auto;
-	object-fit: cover;
+	width: 100% !important;
+	max-width: 100% !important;
+	height: auto !important;
+	max-height: none !important;
+	aspect-ratio: auto !important;
+	object-fit: contain;
+	object-position: center;
 	display: block;
 	border-radius: 0 !important;
 }
@@ -1338,6 +1353,19 @@ body.ej-editorial .ej-single-post .wp-block-post-content :where(ul, ol) {
 body.ej-editorial .ej-single-prose :where(.wp-block-image, figure),
 body.ej-editorial .ej-single-post .wp-block-post-content :where(.wp-block-image, figure) {
 	margin-block: 2rem;
+	max-width: 100%;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+body.ej-editorial .ej-single-prose :where(.wp-block-image img, figure img),
+body.ej-editorial .ej-single-post .wp-block-post-content :where(.wp-block-image img, figure img, img) {
+	width: 100% !important;
+	max-width: 100% !important;
+	height: auto !important;
+	object-fit: contain;
+	object-position: center;
+	display: block;
 }
 
 body.ej-editorial .ej-single-prose :where(blockquote, .wp-block-quote),
@@ -1661,6 +1689,15 @@ body.ej-editorial .explore-jawai-faq-item > p {
 
 	.ej-about-content-grid {
 		gap: 2rem !important;
+	}
+
+	.ej-home-blog-thumb {
+		height: min(220px, 52vw);
+		background-size: contain;
+	}
+
+	body.ej-editorial .ej-single-featured-frame {
+		margin-bottom: 2rem !important;
 	}
 }
 
