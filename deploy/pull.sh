@@ -31,6 +31,7 @@ fi
 WP_PATH="${PUBLIC}" bash "${REPO_DIR}/deploy/set-blog-page.sh"
 WP_PATH="${PUBLIC}" bash "${REPO_DIR}/deploy/set-contact-page.sh"
 REPO_DIR="${REPO_DIR}" WP_PATH="${PUBLIC}" bash "${REPO_DIR}/deploy/setup-contact-form-7.sh"
+bash "${REPO_DIR}/deploy/ensure-mail-transport.sh"
 bash "${REPO_DIR}/deploy/ensure-journal-posts.sh" "${PUBLIC}"
 bash "${REPO_DIR}/deploy/unpublish-plan-your-trip-page.sh" "${PUBLIC}"
 bash "${REPO_DIR}/deploy/set-site-logo.sh"

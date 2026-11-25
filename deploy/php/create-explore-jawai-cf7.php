@@ -65,7 +65,8 @@ $properties['form'] = $form_body;
 $admin_email                    = get_option( 'admin_email' );
 $properties['mail']['active']   = true;
 $properties['mail']['subject']  = '[Explore Jawai] [your-interest]';
-$properties['mail']['sender']   = '[your-name] <[your-email]>';
+/* Site From address — Reply-To uses visitor email (avoids SPF/send failures). */
+$properties['mail']['sender']   = 'Explore Jawai <wordpress@explorejawai.com>';
 $properties['mail']['recipient'] = $admin_email ? $admin_email : '[admin_email]';
 $properties['mail']['body']     = "Contact form — explorejawai.com\n\nName: [your-name]\nEmail: [your-email]\nTravel date: [travel-date]\nTravellers: [travellers]\nInterest: [your-interest]\n\n[your-message]";
 $properties['mail']['additional_headers'] = 'Reply-To: [your-email]';
