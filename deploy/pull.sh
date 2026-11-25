@@ -22,6 +22,12 @@ chown -R www-data:www-data "${PUBLIC}"
 
 bash "${REPO_DIR}/deploy/repair-block-theme.sh" "${PUBLIC}"
 WP_PATH="${PUBLIC}" bash "${REPO_DIR}/deploy/set-about-page.sh"
+
+# UTF-8 BOM in theme PHP breaks wp-login cookies ("unexpected output").
+FUNC_PHP="${PUBLIC}/wp-content/themes/explore-jawai/functions.php"
+if [[ -f "${FUNC_PHP}" ]]; then
+	python3 -c "p='${FUNC_PHP}'; d=open(p,'rb').read(); open(p,'wb').write(d[3:] if d[:3]==b'\\xef\\xbb\\xbf' else d)" 2>/dev/null || true
+fi
 WP_PATH="${PUBLIC}" bash "${REPO_DIR}/deploy/set-blog-page.sh"
 WP_PATH="${PUBLIC}" bash "${REPO_DIR}/deploy/set-contact-page.sh"
 bash "${REPO_DIR}/deploy/ensure-journal-posts.sh" "${PUBLIC}"
