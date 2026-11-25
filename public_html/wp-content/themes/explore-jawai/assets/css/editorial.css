@@ -833,13 +833,26 @@ body.ej-editorial .explore-jawai-page {
 }
 
 /* Green CTA is the last block — no cream gap before footer. */
+body.ej-editorial.ej-about-page-active main.explore-jawai-main,
 body.ej-editorial main.explore-jawai-page.explore-jawai-main:has(.ej-about-band) {
 	padding-bottom: 0 !important;
+	margin-bottom: 0 !important;
 }
 
+body.ej-editorial.ej-about-page-active .explore-jawai-page-content,
 body.ej-editorial .explore-jawai-page-content:has(.ej-about-band) {
 	margin-bottom: 0 !important;
 	padding-bottom: 0 !important;
+}
+
+body.ej-editorial.ej-about-page-active .explore-jawai-page-content .ej-about-band,
+body.ej-editorial .ej-about-band.alignfull {
+	margin-bottom: 0 !important;
+}
+
+body.ej-editorial.ej-about-page-active main.explore-jawai-main + footer,
+body.ej-editorial.ej-about-page-active .wp-block-template-part:has(.explore-jawai-footer) {
+	margin-top: 0 !important;
 }
 
 .ej-about-band__inner {
