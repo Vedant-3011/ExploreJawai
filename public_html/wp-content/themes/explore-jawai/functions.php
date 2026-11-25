@@ -15,17 +15,27 @@ require_once get_stylesheet_directory() . '/inc/contact-form.php';
 /** Editorial design (matches local XAMPP preview). */
 define( 'EXPLORE_JAWAI_EDITORIAL', true );
 
-add_shortcode(
-	'explore_jawai_editorial_cards',
-	static function () {
-		if ( ! defined( 'EXPLORE_JAWAI_EDITORIAL' ) || ! EXPLORE_JAWAI_EDITORIAL ) {
-			return '';
-		}
-		ob_start();
-		include get_stylesheet_directory() . '/inc/editorial-cards-markup.php';
-		return (string) ob_get_clean();
+/**
+ * @param string $partial Partial under inc/.
+ * @return string
+ */
+function explore_jawai_render_partial( $partial ) {
+	if ( ! defined( 'EXPLORE_JAWAI_EDITORIAL' ) || ! EXPLORE_JAWAI_EDITORIAL ) {
+		return '';
 	}
-);
+	$path = get_stylesheet_directory() . '/inc/' . $partial;
+	if ( ! is_readable( $path ) ) {
+		return '';
+	}
+	ob_start();
+	include $path;
+	return (string) ob_get_clean();
+}
+
+add_shortcode( 'explore_jawai_editorial_cards', static fn () => explore_jawai_render_partial( 'editorial-cards-markup.php' ) );
+add_shortcode( 'explore_jawai_home_split', static fn () => explore_jawai_render_partial( 'editorial-home-split.php' ) );
+add_shortcode( 'explore_jawai_home_steps', static fn () => explore_jawai_render_partial( 'editorial-home-steps.php' ) );
+add_shortcode( 'explore_jawai_home_journal', static fn () => explore_jawai_render_partial( 'editorial-home-journal.php' ) );
 
 add_filter(
 	'body_class',
@@ -52,7 +62,7 @@ add_action(
 			'explore-jawai',
 			get_stylesheet_uri(),
 			array( 'explore-jawai-parent' ),
-			'2.1.3'
+			'2.1.4'
 		);
 		if ( defined( 'EXPLORE_JAWAI_EDITORIAL' ) && EXPLORE_JAWAI_EDITORIAL ) {
 			wp_enqueue_style(
@@ -65,7 +75,7 @@ add_action(
 				'explore-jawai-editorial',
 				get_stylesheet_directory_uri() . '/assets/css/editorial.css',
 				array( 'explore-jawai' ),
-				'2.1.3'
+				'2.1.4'
 			);
 		}
 	}
