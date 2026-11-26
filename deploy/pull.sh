@@ -21,6 +21,7 @@ rsync -a --delete \
   "${REPO_DIR}/public_html/" "${PUBLIC}/"
 
 chown -R www-data:www-data "${PUBLIC}"
+bash "${REPO_DIR}/deploy/repair-wp-config-fs-method.sh" "${PUBLIC}"
 bash "${REPO_DIR}/deploy/fix-wp-content-permissions.sh" "${PUBLIC}"
 
 bash "${REPO_DIR}/deploy/repair-block-theme.sh" "${PUBLIC}"

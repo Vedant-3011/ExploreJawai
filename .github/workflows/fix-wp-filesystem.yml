@@ -28,6 +28,6 @@ jobs:
             git pull --ff-only origin main
             bash "${REPO}/deploy/fix-wp-content-permissions.sh" "${PUBLIC}"
             echo "--- wp-config (filesystem-related) ---"
-            wp --allow-root --path="${PUBLIC}" config get FS_METHOD 2>/dev/null || true
+            grep FS_METHOD "${PUBLIC}/wp-config.php" 2>/dev/null || true
             wp --allow-root --path="${PUBLIC}" config get DISALLOW_FILE_MODS 2>/dev/null || true
             php -r 'echo "open_basedir=", ini_get("open_basedir"), PHP_EOL;' 2>/dev/null || true

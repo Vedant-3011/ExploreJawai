@@ -89,13 +89,26 @@ if [[ "${write_ok}" -eq 0 ]]; then
 	exit 1
 fi
 
-if command -v wp >/dev/null 2>&1 && [[ -f "${PUBLIC}/wp-config.php" ]]; then
+WP_CONFIG="${PUBLIC}/wp-config.php"
+if [[ -f "${WP_CONFIG}" ]]; then
+	# Earlier deploys used wp --raw and wrote: define( 'FS_METHOD', direct );  → PHP fatal error.
+	if grep -qE "FS_METHOD',\s*direct\s*\)" "${WP_CONFIG}" 2>/dev/null \
+		|| grep -qE 'FS_METHOD",\s*direct\s*\)' "${WP_CONFIG}" 2>/dev/null; then
+		echo "Repairing broken FS_METHOD constant in wp-config.php"
+		sed -i -E "s/(define\\(\\s*'FS_METHOD'\\s*,\\s*)direct(\\s*\\)\\s*;)/\\1'direct'\\2/" "${WP_CONFIG}"
+		sed -i -E 's/(define\\(\\s*"FS_METHOD"\\s*,\\s*)direct(\\s*\\)\\s*;)/\\1'\''direct'\''\\2/' "${WP_CONFIG}"
+	fi
+fi
+
+if command -v wp >/dev/null 2>&1 && [[ -f "${WP_CONFIG}" ]]; then
 	disallow="$(wp --allow-root --path="${PUBLIC}" config get DISALLOW_FILE_MODS 2>/dev/null || echo "")"
 	if [[ "${disallow}" == "1" || "${disallow}" == "true" ]]; then
 		echo "WARN: DISALLOW_FILE_MODS is enabled — admin updates will fail until disabled." >&2
 	fi
-	wp --allow-root --path="${PUBLIC}" config set FS_METHOD direct --type=constant --raw 2>/dev/null \
-		&& echo "FS_METHOD=direct in wp-config.php" || true
+	if ! grep -q "FS_METHOD" "${WP_CONFIG}" 2>/dev/null; then
+		wp --allow-root --path="${PUBLIC}" config set FS_METHOD direct --type=constant 2>/dev/null \
+			&& echo "Added FS_METHOD=direct in wp-config.php" || true
+	fi
 fi
 
 echo "=== wp-content permissions updated ==="
