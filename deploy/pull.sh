@@ -16,9 +16,12 @@ rsync -a --delete \
   --exclude 'wp-config.php' \
   --exclude 'wp-content/cache/' \
   --exclude 'wp-content/uploads/' \
+  --exclude 'wp-content/upgrade/' \
+  --exclude 'wp-content/upgrade-temp-backup/' \
   "${REPO_DIR}/public_html/" "${PUBLIC}/"
 
 chown -R www-data:www-data "${PUBLIC}"
+bash "${REPO_DIR}/deploy/fix-wp-content-permissions.sh" "${PUBLIC}"
 
 bash "${REPO_DIR}/deploy/repair-block-theme.sh" "${PUBLIC}"
 WP_PATH="${PUBLIC}" bash "${REPO_DIR}/deploy/set-about-page.sh"
